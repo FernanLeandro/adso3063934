@@ -165,11 +165,25 @@ main {
             font-size: 1.6rem;
         }
 
+        p.challenge {
+            color: #6aae11;
+            margin-top: 0.4rem;
+            font-size: 1rem;
+        }
+
         xmp {
             background-color: #0009;
             border-radius: 6px;
             color: #6aae11;
             font-size: 1rem;
+            padding: 10px 10px 20px 10px;
+        }
+
+        xmp.challenge {
+            background-color: #0009;
+            border-radius: 6px;
+            color: #6aae11;
+            font-size: 8.5px;
             padding: 10px 10px 20px 10px;
         }
     }
