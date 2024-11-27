@@ -37,6 +37,11 @@ ul {
     list-style: none;
 }
 
+img.main-menu {
+    max-width: 100%;
+    height: auto;
+}
+
 img.emmet {
     max-width: 100%;
     height: auto;
@@ -130,7 +135,7 @@ main {
             height: 200px;
             width: 200px;
 
-            img {
+            img.main-menu {
                 border-radius: 100px;
             }
         }
