@@ -204,7 +204,7 @@ main {
             text-decoration: none;
             width: 220px;
             transition: all 0.2s ease-in;
-
+            
             span {
                 background-color: #9E2132;
                 border: 2px solid white;
@@ -218,8 +218,24 @@ main {
                 width: 40px;
             }
 
-            &:hover span {
+            &:hover span.emmet {
                 border-radius: 50px;
+                background-color: #7ACB16;
+                width: 60px;
+            }
+            &:hover span.html {
+                border-radius: 50px;
+                background-color: #e75822;
+                width: 60px;
+            }
+            &:hover span.css {
+                border-radius: 50px;
+                background-color: #44A0DC;
+                width: 60px;
+            }
+            &:hover span.jquery {
+                border-radius: 50px;
+                background-color: #444;
                 width: 60px;
             }
         }
