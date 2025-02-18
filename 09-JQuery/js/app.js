@@ -30,13 +30,23 @@ $(function(){
         }
         countRemains()
     })
+    // Remove Task
+    $('body').on('click','article button', function() {
+        $(this).closest('article').remove()
+        countTasks()
+        countRemains()
+    })
 })
+
+
+// Count Taks
 function countTasks() {
     $('.number-tasks').text($('article').length)
     $('.title-tasks').text($('article').length > 1 ? 'Tasks' : 'Task')
 }
 // Count Remains
 function countRemains() {
-    $('.number-remains').text(Math.abs($('.checked').length - $('article').length))
-    $('.title-remains').text($('.checked').length > 1 ? 'Remains' : 'Remain')
+    $remain = Math.abs($('.checked').length - $('article').length)
+    $('.number-remains').text($remain)
+    $('.title-remains').text($remain > 1 ? 'Remains' : 'Remain')
 }
