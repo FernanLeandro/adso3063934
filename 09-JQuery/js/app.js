@@ -1,8 +1,14 @@
 $(function(){
-    // Count Task
+
+    // Check LocalStorage
+    if (localStorage.getItem('todolist') !=  null) {
+    $('.list').html(localStorage.getItem('todolist'))
     countTasks()
-    // Conunt Remains
-    countRemains()
+    countRemains()  
+    }else {
+        countTasks()
+        countRemains()
+    }
     // Add Task
     $('footer').on('click', '#add', function(){
         if($('#input-task').val().length > 0) {
@@ -24,8 +30,10 @@ $(function(){
     $('body').on('click', 'input[type=checkbox]', function() {
         // if cheched
         if($(this).prop('checked')) {
+        $(this).attr('checked', true)
         $(this).parent().addClass('checked') 
         } else {
+        $(this).attr('checked', false)
         $(this).parent().removeClass('checked')
         }
         countRemains()
@@ -49,4 +57,7 @@ function countRemains() {
     $remain = Math.abs($('.checked').length - $('article').length)
     $('.number-remains').text($remain)
     $('.title-remains').text($remain > 1 ? 'Remains' : 'Remain')
+
+    //set LocalStorage
+    localStorage.setItem('todolist', $('.list').html());
 }
