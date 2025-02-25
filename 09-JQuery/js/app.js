@@ -1,23 +1,21 @@
-$(function(){
-
+$(function () {
     // Check LocalStorage
-    if (localStorage.getItem('todolist') !=  null) {
-    $('.list').html(localStorage.getItem('todolist'))
-    countTasks()
-    countRemains()  
-    }else {
+    if (localStorage.getItem('todolist') != null) {
+        $('.list').html(localStorage.getItem('todolist'))
+        countTasks()
+        countRemains()
+    } else {
         countTasks()
         countRemains()
     }
     // Add Task
-    $('footer').on('click', '#add', function(){
-        if($('#input-task').val().length > 0) {
-
-            $task ='<article> \
-                    <input type="checkbox"> \
-                    <p>'+$('#input-task').val()+'</p> \
-                    <button>&times;</button> \
-                    </article>'
+    $('footer').on('click', '#add', function () {
+        if ($('#input-task').val().length > 0) {
+            $task = '<article> \
+            <input type="checkbox"> \
+            <p>'+ $('#input-task').val() + '</p> \
+            <button>&times;</button> \
+            </article>'
             $('section.list').append($task)
             $('#input-task').val('')
             countTasks()
@@ -27,26 +25,24 @@ $(function(){
         }
     })
     // Toggle Task (Remain/Done)
-    $('body').on('click', 'input[type=checkbox]', function() {
+    $('body').on('click', 'input[type=checkbox]', function () {
         // if cheched
-        if($(this).prop('checked')) {
-        $(this).attr('checked', true)
-        $(this).parent().addClass('checked') 
+        if ($(this).prop('checked')) {
+            $(this).attr('checked', true)
+            $(this).parent().addClass('checked')
         } else {
-        $(this).attr('checked', false)
-        $(this).parent().removeClass('checked')
+            $(this).attr('checked', false)
+            $(this).parent().removeClass('checked')
         }
         countRemains()
     })
     // Remove Task
-    $('body').on('click','article button', function() {
+    $('body').on('click', 'article button', function () {
         $(this).closest('article').remove()
         countTasks()
         countRemains()
     })
 })
-
-
 // Count Taks
 function countTasks() {
     $('.number-tasks').text($('article').length)
@@ -57,7 +53,13 @@ function countRemains() {
     $remain = Math.abs($('.checked').length - $('article').length)
     $('.number-remains').text($remain)
     $('.title-remains').text($remain > 1 ? 'Remains' : 'Remain')
-
     //set LocalStorage
     localStorage.setItem('todolist', $('.list').html());
 }
+//Reset
+$('footer').on('click', '#reset', function () {
+    localStorage.setItem('todolist', $('.list').html(''));
+    countTasks()
+    countRemains()
+});
+
