@@ -7,6 +7,7 @@
 - [Repositories List](https://docs.google.com/spreadsheets/d/1M3B-qwrJN2wbeZmIBoA3r0hnP8yy4CKf2euV1oF61os/edit?usp=sharing)
 - [Render site](https://fernanleandroadso.onrender.com)
 - [HTML Reference](https://htmlreference.io/)
+- [Pastebin](https://pastebin.com/Sbiy8tcD)
 
 ---
 ### URL Utils
