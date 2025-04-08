@@ -1,73 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>16-semantic</title>
+    <title>15-structure</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/master.css">
     <style>
-        div.content {
-            display: flex;
-        }
-
-        section.section {
-            background-color: white !important;
-            color: black;
-            padding: 20px;
-        }
-
-        article {
-            padding: 50px;
-            text-align: center;
-            background-color: lightgray;
-        }
-
-        div.header {
-            padding: 20px;
-            text-align: center;
-            background-color: skyblue;
-        }
-
-        menu {
-            padding: 20px;
-            text-align: center;
-            background-color: lightcoral;
-        }
-
-        footer {
-            padding: 20px;
-            text-align: center;
-            background-color: lightgreen;
-        }
-
-        aside {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 250px;
-            padding: 20px;
-            text-align: center;
-            background-color: lightsteelblue;
-        }
-
-        section {
-            padding: 50px;
-            text-align: center;
-            background-color: lightseagreen;
-        }
-
-        aside.content-rigth {
-            width: 20%;
-        }
-
-        aside.content-left {
-            width: 80%;
+        section.section main {
+            all: revert;
+            border: 2px solid #fff9;
+            header,
+            nav,
+            footer {
+                background-color: #fff6;
+                border-bottom: 2px solid #fff9;
+                text-align: center;
+                padding: 1rem;
+            }
+            section {
+                display: flex;
+                aside.content-left {
+                    width: 60%;
+                    section,
+                    article {
+                        background-color: #fff3;
+                        border-right: 2px solid #fff9;
+                        padding: 1rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 127px;
+                    }
+                    article {
+                        border-top: 2px solid #fff9;
+                    }
+                }
+                aside.content-right {
+                    width: 40%;
+                    aside {
+                        background-color: #fff3;
+                        height: 320px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+            footer {
+                border-top: 2px solid #fff9;
+                border-bottom: none;
+            }
         }
     </style>
 </head>
-
 <body class="html">
     <nav class="nav">
         <a href="index.html">
@@ -79,13 +65,13 @@
     </nav>
     <main>
         <header class="header">
-            <h1>16-semantic</h1>
-            <h2>Defines layout with semantic tags (new style).</h2>
+            <h2>16- Semantic</h2>
+            <p>Defines layout with semantic tags (new style).</p>
         </header>
         <section class="section">
             <main>
                 <header>Header</header>
-                <menu>Menu</menu>
+                <nav>Nav</nav>
                 <section>
                     <aside class="content-left">
                         <section>Section</section>
@@ -100,5 +86,4 @@
         </section>
     </main>
 </body>
-
 </html>
