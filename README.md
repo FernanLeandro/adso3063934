@@ -15,3 +15,4 @@
 - [Font Awesome](https://fontawesome.com/icons)
 - [Pastebin](https://pastebin.com/Sbiy8tcD)
 - [HTML Reference](https://htmlreference.io/)
+- [Hero Icons](https://heroicons.com/)
