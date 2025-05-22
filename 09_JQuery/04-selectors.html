@@ -36,10 +36,26 @@
                 &.btn-add {
                     color: green;
                 }
+
                 &:hover {
                     transform: scale(1.2);
                 }
             }
+        }
+
+        button.btn-reset {
+            cursor: pointer;
+            border: none;
+            display: flex;
+            border-radius: 0.4rem;
+            margin: 0 auto;
+            padding: 0.6rem 1.2rem;
+            transition: transform 0.2s ease-in;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
         }
     </style>
 </head>
@@ -78,13 +94,46 @@
 
                 </button>
             </div>
+            <button class="btn-reset">Reset</button>
         </section>
     </main>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function () {
+            $count = 0
 
-        });
+            //selectors
+            $('.btn-subs').click(function () {
+                $('output').text(--$count)
+            })
+
+            $('.btn-add').click(function () {
+                $('output').text(++$count)
+            })
+
+
+            $('.btn-subs').dblclick(function () {
+                $('output').text($count -= 10)
+            })
+
+            $('.btn-add').dblclick(function () {
+                $('output').text($count += 10)
+            })
+
+            //btn-reset
+            $('.btn-reset').click(function () {
+                $interval = setInterval(() => {
+                    if ($count != 0) {
+                        ($count>0) ? $('output').text(--$count): $('output').text(++$count)
+                    } else {
+                        clearInterval($interval)
+                    }
+                }, 100)
+            })
+
+
+        })
+
     </script>
 </body>
 

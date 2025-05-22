@@ -7,8 +7,22 @@
     <title>05-Events</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/master.css">
+<style>
+    figure {
+        border-radius: 0.4rem;
+        height: 380px;
+        overflow: hidden;
+        margin: 10 auto;
+        padding: 0;
+        filter: grayscale(1);
+        border: 2px solid pink;
+        img {
+            transition: all 0.4s ease-in;
+            transform: scale(1.4);
+        }
+    }
+</style>
 </head>
-
 <body class="jquery">
     <nav class="nav">
         <a href="index.html">
@@ -24,12 +38,29 @@
             <p>Handle user interactions like clicks and keypresses.</p>
         </header>
         <section class="section">
-            
+            <h3>MouseEnter & MouseLevave</h3>
+            <figure>
+                <img src="../imagen/Black_SSR.webp" alt="Goku Black">
+            </figure>
+            <h3>Keyup</h3>
+            <article class="area">
+                <img class="character" src="../imagen/goku_black_espada_ki.png">
+            </article>
         </section>
     </main>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function () {
+
+            $('figure').mouseenter(function () {  
+            $(this).css('filter', 'grayscale(0)')
+            $(this).children('img').css('transform', 'scale(1)')
+            })
+            
+            $('figure').mouseleave(function () {  
+            $(this).css('filter', 'grayscale(1)')
+            $(this).children('img').css('transform', 'scale(1.6)')
+            })
 
         });
     </script>
