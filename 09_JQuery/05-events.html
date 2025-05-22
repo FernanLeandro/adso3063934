@@ -33,7 +33,23 @@
         img.character {
             position: absolute;
             transition: all 0.2s ease-in;
-            margin: 20px auto;
+            top: 650px;
+            width: 300px;
+        }
+
+        select.emoji {
+            appearance: none;
+            display: flex;
+            padding: 0.4rem;
+            margin: 0 auto;
+            width: 120px;
+            margin-top: 10px;
+        }
+
+        output.emotion{
+            display: block;
+            font-size: 17rem;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -61,6 +77,15 @@
             <article class="area">
                 <img class="character" src="../imagen/goku_black_espada_ki.png">
             </article>
+            <h4>Form Events:</h4>
+            <h3>Change</h3>
+            <select class="emoji">
+                <option value="❔">Select emoticon...</option>
+                <option value="🙁">Sad</option>
+                <option value="😡">Angry</option>
+                <option value="😊">Happy</option>
+            </select>
+            <output class="emotion">❔</output>
         </section>
         <section style="background-color: transparent;" class="section">
             <h3>Keyup:</h3>
@@ -100,6 +125,11 @@
 
                 }
                 //console.log(event.key)
+            })
+
+            //change
+            $('.emoji').change(function() {
+                $('.emotion').text($(this).val())
             })
 
         });
