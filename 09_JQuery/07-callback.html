@@ -71,6 +71,8 @@
                 $('figure').animate({ left: '100px' }, 4000, function () {
                     $('figure').animate({ left: '0px' }, 4000, function () {
                         $('figcaption').text('Animation Ended')
+                        $('.btn').css({'opacity': 1,
+                                        'pointer-events': 'all'})
                     })
                 })
 
