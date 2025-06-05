@@ -7,6 +7,32 @@
     <title>08-Chaining</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/master.css">
+    <style>
+        button.btn {
+            display: flex;
+            cursor: pointer;
+            border: none;
+            background-color: #fff9;
+            margin: 1rem auto;
+            border-radius: 0.4rem;
+            padding: 0.8rem 1.2rem;
+            transition: transform 0.2s ease-in;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        article.area {
+            position: relative;
+
+        }
+
+        img.character {
+            width: 300px;
+            position: relative;
+        }
+    </style>
 </head>
 
 <body class="jquery">
@@ -23,14 +49,20 @@
             <h2>08-Chaining</h2>
             <p>Chain multiple jQuery methods for concise code.</p>
         </header>
-        <section class="section">
-
-        </section>
+        <button class="btn">Animate</button>
+        <article class="area">
+            <img class="character" src="../imagen/goku_black_espada_ki.png">
+        </article>
     </main>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function () {
-
+            $('.btn').click(function () {
+                $('.character').animate({ 'left': '20px' })
+                    .animate({ 'top': '20px' })
+                    .animate({ 'left': '' })
+                    .animate({ 'top': '' })
+            })
         });
     </script>
 </body>
