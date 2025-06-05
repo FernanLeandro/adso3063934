@@ -65,6 +65,8 @@
     <script>
         $(document).ready(function () {
             $('.btn').click(function () {
+                $(this).css({'opacity':0.3,
+                             'pointer-events': 'none'})
                 $('figcaption').text('Animation Started')
                 $('figure').animate({ left: '100px' }, 4000, function () {
                     $('figure').animate({ left: '0px' }, 4000, function () {
