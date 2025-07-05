@@ -7,6 +7,624 @@
     <title>12-Challenge-memory-game</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Orbitron', monospace;
+            background: #0a0a0a;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 255, 127, 0.2) 0%, transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(90deg, transparent 98%, rgba(0, 255, 255, 0.1) 100%),
+                linear-gradient(0deg, transparent 98%, rgba(255, 0, 255, 0.1) 100%);
+            background-size: 50px 50px;
+            animation: grid-move 20s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes grid-move {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            border-radius: 25px;
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            box-shadow:
+                0 0 50px rgba(0, 255, 255, 0.2),
+                inset 0 0 50px rgba(255, 0, 255, 0.05);
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff7f, #00ffff);
+            border-radius: 25px;
+            z-index: -1;
+            animation: border-glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes border-glow {
+            0% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 900;
+            color:white;
+            text-shadow:
+                0 0 10px #00ffff,
+                0 0 20px #00ffff,
+                0 0 30px #00ffff;
+            animation: title-pulse 2s ease-in-out infinite alternate;
+            letter-spacing: 2px;
+        }
+
+        @keyframes title-pulse {
+            0% {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+            }
+
+            100% {
+                text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            }
+        }
+
+        .restart {
+            margin-top: 20px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            border: none;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow:
+                0 0 20px rgba(255, 0, 255, 0.5),
+                inset 0 0 20px rgba(0, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .restart::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .restart:hover::before {
+            left: 100%;
+        }
+
+        .restart:hover {
+            transform: rotate(180deg);
+            box-shadow:
+                0 0 30px rgba(255, 0, 255, 0.8),
+                inset 0 0 30px rgba(0, 255, 255, 0.4);
+        }
+
+        .restart i {
+            color: white;
+            font-size: 1.8em;
+            z-index: 1;
+        }
+
+        /* Score Panel */
+        .score-panel {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .score-item {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-right: 20px;
+            letter-spacing: 1px;
+        }
+
+        .moves {
+            background: linear-gradient(45deg, #ff00ff, #ff0080);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            box-shadow:
+                0 0 15px rgba(255, 0, 255, 0.5),
+                inset 0 0 15px rgba(255, 0, 128, 0.3);
+            animation: neon-pink 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neon-pink {
+            0% {
+                box-shadow: 0 0 15px rgba(255, 0, 255, 0.5), inset 0 0 15px rgba(255, 0, 128, 0.3);
+            }
+
+            100% {
+                box-shadow: 0 0 25px rgba(255, 0, 255, 0.8), inset 0 0 25px rgba(255, 0, 128, 0.5);
+            }
+        }
+
+        .timer {
+            background: linear-gradient(45deg, #00ffff, #00ff7f);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 25px;
+            box-shadow:
+                0 0 15px rgba(0, 255, 255, 0.5),
+                inset 0 0 15px rgba(0, 255, 127, 0.3);
+            animation: neon-cyan 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neon-cyan {
+            0% {
+                box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), inset 0 0 15px rgba(0, 255, 127, 0.3);
+            }
+
+            100% {
+                box-shadow: 0 0 25px rgba(0, 255, 255, 0.8), inset 0 0 25px rgba(0, 255, 127, 0.5);
+            }
+        }
+
+        /* Deck de cartas */
+        .deck {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            list-style: none;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* Cartas */
+        .card {
+            height: 130px;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 0 20px rgba(0, 255, 255, 0.2),
+                inset 0 0 20px rgba(255, 0, 255, 0.1);
+        }
+
+        /* Parte posterior de la carta (oculta los iconos) */
+        .card::after {
+            content: '?';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: #00ffff;
+            font-weight: 900;
+            text-shadow:
+                0 0 20px #00ffff,
+                0 0 40px #00ffff;
+            transition: all 0.6s ease;
+            border-radius: 13px;
+            animation: question-pulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes question-pulse {
+            0% {
+                text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+            }
+
+            100% {
+                text-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff;
+            }
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg,
+                    transparent 30%,
+                    rgba(0, 255, 255, 0.1) 50%,
+                    transparent 70%);
+            transform: translateX(-100%) skewX(-45deg);
+            transition: transform 0.6s;
+            z-index: 1;
+        }
+
+        .card:hover::before {
+            transform: translateX(100%) skewX(-45deg);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(0, 255, 255, 0.8);
+            box-shadow:
+                0 10px 30px rgba(0, 255, 255, 0.4),
+                inset 0 0 30px rgba(255, 0, 255, 0.2);
+        }
+
+        .card i {
+            font-size: 3.5em;
+            color: transparent;
+            transition: all 0.4s ease;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            z-index: 0;
+        }
+
+        /* Estados de las cartas */
+        .card.open,
+        .card.show {
+            background: linear-gradient(135deg, #ff00ff, #8000ff);
+            border-color: #ff00ff;
+            transform: rotateY(0deg) scale(1.05);
+            animation: card-reveal 0.8s ease-in-out;
+            box-shadow:
+                0 0 30px rgba(255, 0, 255, 0.6),
+                inset 0 0 30px rgba(128, 0, 255, 0.3);
+        }
+
+        /* Ocultar la parte posterior cuando la carta esté abierta */
+        .card.open::after,
+        .card.show::after {
+            opacity: 0;
+            transform: rotateY(180deg);
+            pointer-events: none;
+        }
+
+        .card.open i,
+        .card.show i {
+            color: white;
+            text-shadow:
+                0 0 10px rgba(255, 255, 255, 0.8),
+                0 0 20px rgba(255, 0, 255, 0.6);
+            z-index: 2;
+        }
+
+        .card.match {
+            background: linear-gradient(135deg, #00ff7f, #00ffff);
+            border-color: #00ff7f;
+            animation: match-success 1s ease-in-out;
+            box-shadow:
+                0 0 40px rgba(0, 255, 127, 0.8),
+                inset 0 0 40px rgba(0, 255, 255, 0.4);
+        }
+
+        /* Ocultar la parte posterior cuando la carta esté emparejada */
+        .card.match::after {
+            opacity: 0;
+            transform: rotateY(180deg);
+            pointer-events: none;
+        }
+
+        .card.match i {
+            color: #000;
+            text-shadow:
+                0 0 10px rgba(0, 0, 0, 0.8),
+                0 0 20px rgba(0, 255, 127, 0.6);
+            z-index: 2;
+        }
+
+        /* Animaciones */
+        @keyframes card-reveal {
+            0% {
+                transform: rotateY(180deg) scale(0.8);
+            }
+
+            50% {
+                transform: rotateY(90deg) scale(1.1);
+            }
+
+            100% {
+                transform: rotateY(0deg) scale(1.05);
+            }
+        }
+
+        @keyframes match-success {
+
+            0%,
+            100% {
+                transform: scale(1.05);
+            }
+
+            25% {
+                transform: scale(1.2) rotate(5deg);
+            }
+
+            75% {
+                transform: scale(1.2) rotate(-5deg);
+            }
+        }
+
+        /* Popup */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .popup {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border: 2px solid #00ffff;
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow:
+                0 0 50px rgba(0, 255, 255, 0.5),
+                inset 0 0 50px rgba(255, 0, 255, 0.1);
+            animation: popup-appear 0.8s ease-out;
+        }
+
+        @keyframes popup-appear {
+            0% {
+                transform: scale(0.3) rotateY(180deg);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.1) rotateY(90deg);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: scale(1) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        .popup h2 {
+            color: #00ffff;
+            margin-bottom: 30px;
+            font-size: 2.8em;
+            font-weight: 900;
+            text-shadow:
+                0 0 10px #00ffff,
+                0 0 20px #00ffff;
+            animation: title-pulse 2s ease-in-out infinite alternate;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2.5em;
+            color: #ff00ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
+        .close:hover {
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
+            transform: scale(1.2) rotate(90deg);
+        }
+
+        .content-1 {
+            font-size: 1.4em;
+            color: #00ff7f;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #00ff7f;
+        }
+
+        .content-2 {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            backdrop-filter: blur(5px);
+        }
+
+        .content-2 p {
+            margin: 15px 0;
+            font-size: 1.2em;
+            color: #ffffff;
+        }
+
+        .result {
+            font-weight: 900;
+            color: #ff00ff;
+            font-size: 1.5em;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
+        #play-again {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 30px;
+            font-size: 1.3em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow:
+                0 0 20px rgba(0, 255, 255, 0.5),
+                inset 0 0 20px rgba(255, 0, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+
+        #play-again::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        #play-again:hover::before {
+            left: 100%;
+        }
+
+        #play-again:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow:
+                0 10px 30px rgba(0, 255, 255, 0.8),
+                inset 0 0 30px rgba(255, 0, 255, 0.4);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .deck {
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 15px;
+            }
+
+            .card {
+                height: 90px;
+            }
+
+            .card i {
+                font-size: 2.5em;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .restart {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .deck {
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 10px;
+            }
+
+            .card {
+                height: 80px;
+            }
+
+            .card i {
+                font-size: 2em;
+            }
+
+            .popup {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+
+        section.section {
+            width: 800px !important;
+        }
+    </style>
 </head>
 
 <body class="jquery">
@@ -24,13 +642,323 @@
             <p>Build a memory game using jQuery.</p>
         </header>
         <section class="section">
+            <div class="container">
+                <header>
+                    <h1>Juego de Memoria</h1>
+                    <div class="restart" onclick="startGame()">
+                        <i class="fas fa-redo-alt"></i>
+                    </div>
+                    <section class="score-panel">
+                        <span class="moves score-item">0</span><span style="margin-left: 1.1rem;"></span>
+                        <div class="timer score-item"></div>
+                    </section> <!-- score-panel -->
+                </header>
+                <ul class="deck" id="card-deck">
+                    <li class="card" type="github">
+                        <i class="fab fa-github"></i>
+                    </li>
+                    <li class="card" type="css">
+                        <i class="fab fa-css3-alt"></i>
+                    </li>
+                    <li class="card match" type="php">
+                        <i class="fab fa-php"></i>
+                    </li>
+                    <li class="card" type="python">
+                        <i class="fab fa-python"></i>
+                    </li>
+                    <li class="card" type="slack">
+                        <i class="fab fa-slack"></i>
+                    </li>
+                    <li class="card match" type="php">
+                        <i class="fab fa-php"></i>
+                    </li>
+                    <li class="card" type="html5">
+                        <i class="fab fa-html5"></i>
+                    </li>
+                    <li class="card" type="js">
+                        <i class="fab fa-js"></i>
+                    </li>
+                    <li class="card" type="github">
+                        <i class="fab fa-github"></i>
+                    </li>
+                    <li class="card" type="codepen">
+                        <i class="fab fa-codepen"></i>
+                    </li>
+                    <li class="card" type="html5">
+                        <i class="fab fa-html5"></i>
+                    </li>
+                    <li class="card" type="codepen">
+                        <i class="fab fa-codepen"></i>
+                    </li>
+                    <li class="card open show" type="python">
+                        <i class="fab fa-python"></i>
+                    </li>
+                    <li class="card" type="js">
+                        <i class="fab fa-js"></i>
+                    </li>
+                    <li class="card" type="css">
+                        <i class="fab fa-css3-alt"></i>
+                    </li>
+                    <li class="card" type="slack">
+                        <i class="fab fa-slack"></i>
+                    </li>
+                </ul>
 
+                <div id="popup1" class="overlay">
+                    <div class="popup">
+                        <h2>Felicidades</h2>
+                        <a class="close" href=#>×</a>
+                        <div class="content-1">
+                            Conseguiste adivinar todas las tarjetas!!
+                        </div>
+                        <div class="content-2">
+                            <p>You made <span id=finalMove class="result"> </span> moves </p>
+                            <p>in <span id=totalTime class="result"> </span> ! </p>
+                        </div>
+                        <button id="play-again" onclick="playAgain()">
+                            Jugar de nuevo
+                        </button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function () {
+            // arreglo cards contiene todas las cartas
+            let cards = $(".card").toArray();
 
+            // mazo de todas las cartas en el juego
+            const $deck = $("#card-deck");
+
+            // declarando variable de movimientos
+            let moves = 0;
+            let $counter = $(".moves");
+
+            // declarar variables para iconos de estrella
+            const $stars = $(".fa-star");
+
+            // declarando variable de cartas coincidentes
+            let $matchedCard = $(".match");
+
+            // icono cerrar en modal
+            let $closeicon = $(".close");
+
+            // declarar modal
+            let $modal = $("#popup1");
+
+            // arreglo para cartas abiertas
+            var openedCards = [];
+
+            // variables del temporizador
+            var second = 0, minute = 0, hour = 0;
+            var $timer = $(".timer");
+            var interval;
+
+            // mezcla cartas
+            // @param {array}
+            // @returns shuffledarray
+            function shuffle(array) {
+                var currentIndex = array.length, temporaryValue, randomIndex;
+
+                while (currentIndex !== 0) {
+                    randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex -= 1;
+                    temporaryValue = array[currentIndex];
+                    array[currentIndex] = array[randomIndex];
+                    array[randomIndex] = temporaryValue;
+                }
+
+                return array;
+            }
+
+            // mezcla cartas cuando la página se actualiza / carga
+            startGame();
+
+            // función para iniciar un nuevo juego
+            function startGame() {
+                // detener el temporizador anterior si existe
+                if (interval) {
+                    clearInterval(interval);
+                }
+
+                // mezclar mazo
+                cards = shuffle(cards);
+                // remover todas las clases existentes de cada carta
+                $deck.empty();
+
+                $.each(cards, function (i, card) {
+                    $deck.append(card);
+                    $(card).removeClass("show open match disabled unmatched no-event");
+                });
+
+                // reiniciar movimientos
+                moves = 0;
+                $counter.html(moves);
+
+                // reiniciar temporizador
+                second = 0;
+                minute = 0;
+                hour = 0;
+                $timer.html("00 : 00");
+
+                // limpiar arreglo de cartas abiertas
+                openedCards = [];
+
+                // reiniciar estrellas si tienes sistema de puntuación
+                $stars.removeClass("fa-star-o").addClass("fa-star");
+
+                // ocultar modal si está visible
+                $modal.removeClass("show");
+            }
+
+            // alterna clases open y show para mostrar cartas
+            var displayCard = function () {
+                $(this).toggleClass("open show disabled");
+            };
+
+            // agregar cartas abiertas a la lista OpenedCards y verificar si las cartas coinciden o no
+            function cardOpen() {
+                openedCards.push(this);
+                var len = openedCards.length;
+                if (len === 2) {
+                    moveCounter();
+                    if ($(openedCards[0]).attr('type') === $(openedCards[1]).attr('type')) {
+                        matched();
+                    } else {
+                        unmatched();
+                    }
+                }
+            }
+
+            //  cuando las cartas coinciden
+            function matched() {
+                $(openedCards[0]).addClass("match disabled").removeClass("show open no-event");
+                $(openedCards[1]).addClass("match disabled").removeClass("show open no-event");
+                openedCards = [];
+                // verificar si el juego terminó después de cada coincidencia
+                checkGameEnd();
+            }
+
+            // descripción cuando las cartas no coinciden
+            function unmatched() {
+                $(openedCards[0]).addClass("unmatched");
+                $(openedCards[1]).addClass("unmatched");
+                disable();
+                setTimeout(function () {
+                    $(openedCards[0]).removeClass("show open no-event unmatched");
+                    $(openedCards[1]).removeClass("show open no-event unmatched");
+                    enable();
+                    openedCards = [];
+                }, 1100);
+            }
+
+            //  deshabilitar cartas temporalmente
+            function disable() {
+                $(".card").addClass('disabled');
+            }
+
+            //  habilitar cartas y deshabilitar cartas coincidentes
+            function enable() {
+                $(".card").removeClass('disabled');
+                $(".match").addClass("disabled");
+            }
+
+            //  contar movimientos del jugador
+            function moveCounter() {
+                moves++;
+                $counter.html(moves);
+                //iniciar temporizador en el primer clic
+                if (moves == 1) {
+                    second = 0;
+                    minute = 0;
+                    hour = 0;
+                    startTimer();
+                }
+                // actualizar estrellas basado en movimientos (opcional)
+                starRating();
+            }
+
+            // sistema de calificación con estrellas (opcional)
+            function starRating() {
+                if (moves > 8 && moves <= 12) {
+                    $stars.eq(2).removeClass("fa-star").addClass("fa-star-o");
+                } else if (moves > 12) {
+                    $stars.eq(1).removeClass("fa-star").addClass("fa-star-o");
+                }
+            }
+
+            //  temporizador del juego
+            function startTimer() {
+                interval = setInterval(function () {
+                    $timer.html(minute + " : " + second);
+                    second++;
+                    if (second == 60) {
+                        minute++;
+                        second = 0;
+                    }
+                    if (minute == 60) {
+                        hour++;
+                        minute = 0;
+                    }
+                }, 1000);
+            }
+
+            //  función para verificar si el juego terminó (sin mostrar modal)
+            function checkGameEnd() {
+                // contar cartas coincidentes actuales
+                var matchedCards = $(".match").length;
+
+                if (matchedCards == 16) {
+                    clearInterval(interval);
+                    // El juego terminó, puedes agregar aquí cualquier lógica adicional si necesitas
+                    console.log("¡Juego completado!");
+                }
+            }
+
+            //  configurar botones del modal (para uso futuro si necesitas modal)
+            function closeModal() {
+                // remover listeners previos para evitar duplicados
+                $closeicon.off('click');
+                $(".play-again").off('click');
+
+                // agregar listener para cerrar modal
+                $closeicon.on("click", function (e) {
+                    $modal.removeClass("show");
+                    startGame();
+                });
+
+                // agregar listener para jugar de nuevo
+                $(".play-again").on("click", function (e) {
+                    playAgain();
+                });
+            }
+
+            //  para que el usuario juegue de nuevo
+            function playAgain() {
+                $modal.removeClass("show");
+                startGame();
+            }
+
+            // Agregar event listener para botón de reinicio
+            $(".restart").on('click', function () {
+                startGame();
+            });
+
+            // Agregar event listeners a cada carta
+            $(document).on('click', '.card:not(.disabled)', function () {
+                // prevenir clicks en cartas ya abiertas o coincidentes
+                if ($(this).hasClass('open') || $(this).hasClass('match')) {
+                    return;
+                }
+
+                displayCard.call(this);
+                cardOpen.call(this);
+            });
+
+            // Hacer la función playAgain accesible globalmente si es necesario
+            window.playAgain = playAgain;
         });
     </script>
 </body>
