@@ -62,13 +62,13 @@
             <form method="POST" action="{{ route('login') }}" class="card-body">
                 @csrf
                 <label class="label">Email</label>
-                <input type="text" class="input bg-[#0009]" name="email" placeholder="Email" value="{{ old('email') }}" />
+                <input type="text" class="input bg-[#0009] indent-2" name="email" placeholder="Email" value="{{ old('email') }}" />
                 @error('email')
                     <small class="text-error text-sm mt-1">{{ $message }}</small>
                 @enderror
 
                 <label class="label">Password</label>
-                <input type="password" class="input bg-[#0009]" name="password" placeholder="Password" />
+                <input type="password" class="input bg-[#0009] indent-2" name="password" placeholder="Password" />
                 @error('password')
                     <small class="text-error text-sm mt-1">{{ $message }}</small>
                 @enderror
