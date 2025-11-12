@@ -20,7 +20,7 @@
         </a>
         @endguest
         @auth()
-        <a class="btn btn-outline" href="{{ url('dashboard') }}">
+        <a class="btn btn-outline border" href="{{ url('dashboard') }}">
             Dashboard
         </a>
         @endauth
