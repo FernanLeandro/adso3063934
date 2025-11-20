@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 @php
-if(Auth::user()->role == 'Administrador') {
+if(Auth::user()->role == 'Administrator') {
 $image = 'images/pets-dashboard-2.png';
 } else {
 $image = 'images/pets-dashboard.png';
@@ -20,6 +20,7 @@ $image = 'images/pets-dashboard.png';
 <body class="min-h-[100dvh] bg-[url({{ asset($image) }})] bg-contain bg-cover bg-fixed bg-center bg-black w-full flex flex-col gap-4 items-center justify-center p-8 pt-20">
     @include('layouts.navbar')
     @yield('content')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     @yield('js')
 </body>
 

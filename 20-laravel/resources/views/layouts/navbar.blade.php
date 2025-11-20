@@ -28,7 +28,7 @@
                 </li>
 
                 {{-- Role: Administrator --}}
-                @if(Auth::user()->role == 'Administrador')
+                @if(Auth::user()->role == 'Administrator')
 
                 <li>
                     <a href="{{ url('users/') }}">
