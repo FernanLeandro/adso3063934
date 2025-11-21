@@ -1,13 +1,13 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Add Users: Larapets 🙀')
+@section('title', 'Edit Users: Larapets 🙀')
 
 @section('content')
-<h1 class="text-4xl text-black flex gap-2 items-center justify-center pb-4 border-b-2 border-black border-neutra-50 mb-10">
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
-        <path d="M227.32,73.37,182.63,28.69a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31l83.67-83.66,3.48,13.9-36.8,36.79a8,8,0,0,0,11.31,11.32l40-40a8,8,0,0,0,2.11-7.6l-6.9-27.61L227.32,96A16,16,0,0,0,227.32,73.37ZM48,179.31,76.69,208H48Zm48,25.38L51.31,160,136,75.31,180.69,120Zm96-96L147.32,64l24-24L216,84.69Z"></path>
+<h1 class="text-4xl text-white flex gap-2 items-center justify-center pb-4 border-b-2 border-neutra-50 mb-10">
+    <svg xmlns="http://www.w3.org/2000/svg" class="size-12" fill="currentColor" viewBox="0 0 256 256">
+        <path d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.68,147.31,64l24-24L216,84.68Z"></path>
     </svg>
-    Edit user
+    Edit User
 </h1>
 {{-- Breadcrumbs --}}
 <div class="breadcrumbs text-sm text-white bg-[#0009] rounded-box px-4 py-2">
@@ -15,9 +15,7 @@
         <li>
             <a href="{{ url('dashboard') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                        d="M104,40H56A16,16,0,0,0,40,56v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,104,40Zm0,64H56V56h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,64H152V56h48v48Zm-96,32H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm0,64H56V152h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Zm0,64H152V152h48v48Z">
-                    </path>
+                    <path d="M128,16a96.11,96.11,0,0,0-96,96c0,24,12.56,55.06,33.61,83,21.18,28.15,44.5,45,62.39,45s41.21-16.81,62.39-45c21.05-28,33.61-59,33.61-83A96.11,96.11,0,0,0,128,16Zm49.61,169.42C160.24,208.49,140.31,224,128,224s-32.24-15.51-49.61-38.58C59.65,160.5,48,132.37,48,112a80,80,0,0,1,160,0C208,132.37,196.35,160.5,177.61,185.42ZM120,136A40,40,0,0,0,80,96a16,16,0,0,0-16,16,40,40,0,0,0,40,40A16,16,0,0,0,120,136ZM80,112a24,24,0,0,1,24,24h0A24,24,0,0,1,80,112Zm96-16a40,40,0,0,0-40,40,16,16,0,0,0,16,16,40,40,0,0,0,40-40A16,16,0,0,0,176,96Zm-24,40a24,24,0,0,1,24-24A24,24,0,0,1,152,136Zm0,48a8,8,0,0,1-8,8H112a8,8,0,0,1,0-16h32A8,8,0,0,1,152,184Z"></path>
                 </svg>
                 Dashboard
             </a>
@@ -35,7 +33,7 @@
         <li>
             <span class="inline-flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M227.32,73.37,182.63,28.69a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31l83.67-83.66,3.48,13.9-36.8,36.79a8,8,0,0,0,11.31,11.32l40-40a8,8,0,0,0,2.11-7.6l-6.9-27.61L227.32,96A16,16,0,0,0,227.32,73.37ZM48,179.31,76.69,208H48Zm48,25.38L51.31,160,136,75.31,180.69,120Zm96-96L147.32,64l24-24L216,84.69Z"></path>
+                    <path d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.68,147.31,64l24-24L216,84.68Z"></path>
                 </svg>
                 Edit User
             </span>
@@ -43,7 +41,7 @@
     </ul>
 </div>
 <div class="w-full md:w-[720px] w-[320px] bg-[#0009] rounded-box p-6">
-    <form method="POST" action="{{ url('users/'.$user->id) }}" class="flex flex-col md:flex-row gap-4 mt-4" enctype="multipart/form-data">
+    <form method="POST" action="{{ url('users/' . $user->id) }}" class="flex flex-col md:flex-row gap-4 mt-4" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="w-full md:w-[320px]">
@@ -68,7 +66,7 @@
             {{-- Document --}}
             <label class="label text-white">Document</label>
             <input type="number" class="input bg-[#fff]" name="document" placeholder="123456789"
-                value="{{ old('document') }}" />
+                value="{{ old('document', $user->document) }}" />
             @error('document')
             <small class="badge badge-error w-full mt-1 text-xs py-4">{{ $message }}</small>
             @enderror
@@ -76,7 +74,7 @@
             {{-- Fullname --}}
             <label class="label text-white">Full Name</label>
             <input type="text" class="input bg-[#fff]" name="fullname" placeholder="Jeremias Springfield"
-                value="{{ old('fullname') }}" />
+                value="{{ old('fullname', $user->fullname) }}" />
             @error('fullname')
             <small class="badge badge-error w-full mt-1 text-xs py-4">{{ $message }}</small>
             @enderror
@@ -85,36 +83,39 @@
             <label class="label text-white">Gender</label>
             <select name="gender" class="select bg-[#fff] outline-0">
                 <option value="">Select...</option>
-                <option value="Female" @if (old('gender')=='Female' ) selected @endif>Female</option>
-                <option value="Male" @if (old('gender')=='Male' ) selected @endif>Male</option>
+                <option value="Female" @if (old('gender', $user->gender)=='Female' ) selected @endif>Female</option>
+                <option value="Male" @if (old('gender', $user->gender)=='Male' ) selected @endif>Male</option>
             </select>
             @error('gender')
             <small class="badge badge-error w-full mt-1 text-xs py-4">{{ $message }}</small>
             @enderror
+
+            
         </div>
 
         <div class="w-full md:w-[320px]">
+            {{-- Birthdate --}}
+            <label class="label text-white">Birthdate</label>
+            <input type="date" class="input bg-[#fff]" name="birthdate" placeholder="1983-06-16"
+                value="{{ old('birthdate', $user->birthdate) }}" />
+            @error('birthdate')
+            <small class="badge badge-error w-full mt-1 text-xs py-4">{{ $message }}</small>
+            @enderror
             {{-- phone --}}
             <label class="label text-white">Phone</label>
             <input type="number" class="input bg-[#fff]" name="phone" placeholder="3204456321"
-                value="{{ old('phone') }}" />
+                value="{{ old('phone', $user->phone) }}" />
             @error('phone')
             <small class="badge badge-error w-full mt-1 text-xs py-4">{{ $message }}</small>
             @enderror
 
             <label class="label text-white">Email</label>
-            <input type="text" class="input bg-[#fff]" name="email" placeholder="Email" value="{{ old('email') }}" />
+            <input type="text" class="input bg-[#fff]" name="email" placeholder="Email" value="{{ old('email', $user->email) }}" />
             @error('email')
             <small class="badge badge-error w-full mt-1 text-xs py-4">{{ $message }}</small>
             @enderror
-            {{-- Birthdate --}}
-            <label class="label text-white">Birthdate</label>
-            <input type="date" class="input bg-[#fff]" name="birthdate" placeholder="1983-06-16"
-                value="{{ old('birthday') }}" />
-            @error('birthdate')
-            <small class="badge badge-error w-full mt-1 text-xs py-4">{{ $message }}</small>
-            @enderror
-            <button class="btn text-white border mt-4 w-full hover:bg-[#fff6]">Edit</button>
+
+            <button class="btn btn-outline btn-success hover:text-white mt-4 w-full">Register</button>
         </div>
     </form>
 </div>
@@ -123,14 +124,15 @@
 @section('js')
 <script>
     $(document).ready(function() {
-        $('#upload').on('click', function(e) {
+        $('#upload').click(function(e) {
             e.preventDefault();
             $('#photo').click();
         });
+
         $('#photo').change(function(e) {
             e.preventDefault();
             $('#preview').attr('src', window.URL.createObjectURL($(this).prop('files')[0]));
-        })
+        });
     });
 </script>
 @endsection
