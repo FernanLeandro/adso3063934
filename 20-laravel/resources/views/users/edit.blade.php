@@ -115,7 +115,7 @@
             <small class="badge badge-error w-full mt-1 text-xs py-4">{{ $message }}</small>
             @enderror
 
-            <button class="btn btn-outline btn-success hover:text-white mt-4 w-full">Register</button>
+            <button class="btn text-white border mt-4 w-full hover:bg-[#fff6]">Edit</button>
         </div>
     </form>
 </div>
