@@ -3,11 +3,11 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PetController;
 
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('hello', function () {
     return "<h1>Hello folks, Have a nice day 😍</h1";
 });
@@ -72,11 +72,28 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-  Route::resources([
-    'users' =>UserController::class,
-    // 'pets' =>PetController::class,
-    // 'adoptions' =>AdoptionController::class
-  ]);
+    Route::resources([
+        'users' => UserController::class,
+        'pets' => PetController::class,
+        // 'adoptions' =>AdoptionController::class
+    ]);
+    // Search
+    Route::post('search/users', [UserController::class, 'search']);
+    Route::post('search/pets', [PetController::class, 'search']);
+
+    // Export
+    Route::get('export/users/pdf', [UserController::class, 'pdf']);
+    Route::get('export/users/excel', [UserController::class, 'excel']);
+
+    // Pets Export
+    Route::get('export/pets/pdf', [PetController::class, 'pdf']);
+    Route::get('export/pets/excel', [PetController::class, 'excel']);
+
+    // Imports
+    Route::post('import/users', [UserController::class, 'import']);
+    Route::post('import/pets', [PetController::class, 'import']);
+    // Toggle active
+    Route::post('pets/{pet}/toggle-active', [PetController::class, 'toggleActive'])->name('pets.toggleActive');
 });
 
 require __DIR__ . '/auth.php';
