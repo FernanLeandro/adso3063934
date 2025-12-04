@@ -155,23 +155,30 @@
 
 @section('js')
 <script>
+    // Modal
     $(document).ready(function() {
         const modal_message = document.getElementById('modal_message');
+        const modal_delete = document.getElementById('modal_delete');
         @if(session('message'))
         modal_message.showModal();
         @endif
 
+
+        // Delete ----------------
         $('table').on('click', '.btn-delete', function() {
-            $fullname = $(this).data('fullname')
+            $fullname = $(this).data('fullname');
             $('.fullname').text($fullname);
-            $fsm = $(this).next()
+            $fsm = $(this).next();
             modal_delete.showModal();
+
         })
         $('.btn-confirm').on('click', function(e) {
             e.preventDefault()
             $fsm.submit()
         })
 
+
+        // Search ----------------
         function debounce(func, wait) {
             let timeout
             return function executedFunction(...args) {
@@ -184,7 +191,9 @@
             }
         }
         const search = debounce(function(query) {
+
             $token = $('input[name=_token]').val()
+
             $.post("search/pets", {
                     'q': query,
                     '_token': $token
@@ -197,7 +206,12 @@
         $('body').on('input', '#qsearch', function(event) {
             event.preventDefault()
             const query = $(this).val()
-            $('.datalist').html(`<tr><td colspan="7" class="text-center py-18"><span class="loading loading-spinner loading-xl"></span></td></tr>`)
+
+            $('.datalist').html(`<tr>
+                                        <td colspan="7" class="text-center py-18">
+                                            <span class="loading loading-spinner loading-xl"></span>
+                                        </td>
+                                    </tr>`)
             if (query != '') {
                 search(query)
             } else {
