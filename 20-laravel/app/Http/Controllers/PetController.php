@@ -16,7 +16,7 @@ class PetController extends Controller
      */
     public function index()
     {
-        $pets = Pet::paginate(20);
+        $pets = Pet::orderBy('id', 'desc')->paginate(20);
         return view('pets.index')->with('pets', $pets);
     }
 
@@ -69,7 +69,8 @@ class PetController extends Controller
         $pet->breed = $request->breed;
         $pet->location = $request->location;
         $pet->description = $request->description;
-        $pet->active = $request->has('active') ? 1 : 0;
+        // Default newly created pets to active (user requested new pets appear active)
+        $pet->active = 1;
         $pet->status = $request->has('status') ? 1 : 0;
 
         if ($pet->save()) {
