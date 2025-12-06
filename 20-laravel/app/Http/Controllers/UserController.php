@@ -111,7 +111,7 @@ class UserController extends Controller
         $user->fullname = $request->fullname;
         $user->gender = $request->gender;
         $user->birthdate = $request->birthdate;
-        // $user->photo = $photo;
+        $user->photo = $photo;
         $user->phone = $request->phone;
         $user->email = $request->email;
 

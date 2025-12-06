@@ -45,20 +45,24 @@
 @php
     // Ensure variables exist to avoid undefined variable errors in the view
     $adopt = $adopt ?? null;
-    $pet = $pet ?? ($adopt->pet ?? null);
-    $user = $user ?? ($adopt->user ?? null);
+    $pet = $pet ?? (optional($adopt)->pet ?? null);
+    $user = $user ?? (optional($adopt)->user ?? null);
 @endphp
 
 <div class="bg-[#0009] p-10 rounded-sm">
-    {{-- Photo --}}
-    <div class="avatar flex flex-col cursor-pointer hover:scale-110 transition ease-in justify-center items-center">
-        <div class="mask mask-squircle w-60">
-            <img src="{{ asset('images/' . (optional($pet)->image ?? 'no-image.png')) }}" alt="">
+    {{-- Photos (side-by-side) --}}
+    <div class="flex flex-row gap-6 justify-center items-center mb-6">
+        {{-- Adoptante a la izquierda --}}
+        <div class="avatar cursor-pointer hover:scale-110 transition ease-in">
+            <div class="mask mask-squircle w-60">
+                <img src="{{ asset('images/' . (optional($user)->photo ?? 'no-photo.webp')) }}" alt="Adoptante">
+            </div>
         </div>
-    </div>
-    <div class="avatar flex flex-col cursor-pointer hover:scale-110 transition ease-in justify-center items-center">
-        <div class="mask mask-squircle w-60">
-            <img src="{{ asset('images/' . (optional($user)->image ?? 'no-image.png')) }}" alt="">
+        {{-- Mascota a la derecha --}}
+        <div class="avatar cursor-pointer hover:scale-110 transition ease-in">
+            <div class="mask mask-squircle w-60">
+                <img src="{{ asset('images/' . (optional($pet)->image ?? 'no-image.png')) }}" alt="Mascota">
+            </div>
         </div>
     </div>
     {{-- Data --}}
@@ -113,11 +117,9 @@
             </li>
             <li class="list-row">
                 <span class="font-semibold">Status</span>
-                <span class="text-[#fff9]">@if(optional($pet)->status == 1)
-                    <div class="badge badge-outline badge-error">Adopted</div>
-                    @else
-                    <div class="badge badge-outline badge-success">Available</div>
-                    @endif</span>
+                <span class="text-[#fff9]">
+                    <div class="badge badge-outline">Adopted</div>
+                </span>
             </li>
             <li class="list-row">
                 <span class="font-semibold">Create At::</span><span class="text-[#fff9]">{{ optional(optional($pet)->created_at)->toDayDateTimeString() ?? '—' }}</span>
