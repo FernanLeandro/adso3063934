@@ -19,7 +19,16 @@ class UserAdmin
         if (Auth::user()->role == 'Administrator') {
             return $next($request);
         }
-        return redirect('dashboard')
-        ->with('error', 'You do not have permissions to view this content!.');
+        // For AJAX/JSON requests, return 403 JSON
+        if ($request->ajax() || $request->wantsJson()) {
+            return response()->json(['message' => 'Forbidden.'], 403);
+        }
+        // Try to redirect back if possible to avoid forcing dashboard
+        $previous = url()->previous();
+        if ($previous && $previous !== url()->current()) {
+            return redirect()->back()->with('error', 'You do not have permissions to view this content!.');
+        }
+        // Fallback to dashboard
+        return redirect('dashboard')->with('error', 'You do not have permissions to view this content!.');
     }
 }
