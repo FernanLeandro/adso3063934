@@ -98,6 +98,16 @@ $image = 'images/pets-dashboard.png';
     @include('layouts.navbar')
     @yield('content')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        @auth
+        const _role = "{{ Auth::user()->role }}";
+        document.addEventListener('input', e=>{
+            if(e.target?.id==='qsearch' && ['users','pets','adoptions'].includes(e.target.value.trim().toLowerCase()) && _role!=='Administrator'){
+                const d=document.getElementById('modal_error'); if(d?.showModal){ const t=document.getElementById('modal_error_text'); if(t) t.innerText = `Access denied: only admins can view '${e.target.value.trim()}'`; d.showModal(); }
+            }
+        });
+        @endauth
+    </script>
     @yield('js')
 
 </body>

@@ -10,6 +10,8 @@
   Dashboard
 </h1>
 
+{{-- Customer --}}
+@if (Auth::user()->role == 'Administrator')
 <!-- Cards -->
 <div class="flex flex-wrap gap-4 items-center justify-center">
   {{-- module user --}}
@@ -202,30 +204,118 @@
     </div>
   </div>
 </div>
-<dialog id="modal_message" class="modal">
+
+@endif
+
+{{-- Customer --}}
+@if (Auth::user()->role == 'Customer')
+
+<!-- Cards -->
+<div class="flex flex-wrap gap-4 items-center justify-center">
+  {{-- module user --}}
+  <div class="card text-white bg-[#0006] w-96 shadow-sm">
+    <figure class="h-48 overflow-hidden">
+      <img class="w-full h-full object-cover" src="images/model-user.png" alt="">
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title">Module Profile</h2>
+      {{-- stats --}}
+
+      <div class="card-actions justify-end">
+        <a class="btn btn-outline hover:bg-[#fff6] hover:text-white mt-3" href="{{ url('myprofile') }}">Enter
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card text-white bg-[#0006] w-96 shadow-sm">
+    <figure class="h-48 overflow-hidden">
+      <img class="w-full h-full object-cover" src="images/model-pets.png" alt="">
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title">My Adoptions</h2>
+      {{-- stats --}}
+
+      <div class="card-actions justify-end">
+        <a class="btn btn-outline hover:bg-[#fff6] hover:text-white mt-3" href="{{ url('pets') }}">Enter
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="card text-white bg-[#0006] w-96 shadow-sm">
+    <figure class="h-48 overflow-hidden">
+      <img src="images/adoption-pets.png" class="w-full h-full object-cover" alt="">
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title">Make Adoption</h2>
+      {{-- stats --}}
+
+      <div class="card-actions justify-end">
+        <a class="btn btn-outline hover:bg-[#fff6] hover:text-white mt-3" href="{{ url('adoptions') }}">Enter
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<dialog id="modal_error" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Sorry!</h3>
     <div role="alert" class="alert alert-error">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
-      <span>{{ session('error') }}</span>
+      <span id="modal_error_text">{{ session('error') }}</span>
     </div>
   </div>
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
   </form>
 </dialog>
+
+@endif
+
+<dialog id="modal_message" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Congratulations profile edited!</h3>
+    <div role="alert" class="alert alert-success">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+        viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span id="modal_message_text">{{ session('message') }}</span>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
 @endsection
 
 @section('js')
 <script>
   // Modal
   $(document).ready(function() {
-    const modal_message = document.getElementById('modal_message');
+    const modal_error = document.getElementById('modal_error');
     @if(session('error'))
+    modal_error.showModal();
+    @endif
+    const modal_message = document.getElementById('modal_message');
+    @if(session('message'))
     modal_message.showModal();
     @endif
+
   })
 </script>
 @endsection
