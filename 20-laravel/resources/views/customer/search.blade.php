@@ -1,6 +1,6 @@
 @forelse ($pets as $pet)
 
-<tr class="{{ $pet->id % 2 == 0 ? 'bg-[#0006]' : '' }}">
+<tr class="{{ $pet->id % 2 == 0 ? 'bg-[#000a]' : '' }}">
     <th class="hidden md:table-cell">{{ $pet->id }}</th>
     <td>
         <div class="avatar">
@@ -28,12 +28,12 @@
     </td>
 </tr>
 @empty
-<tr class="bg-[#0009]">
+<tr class="bg-[#000a]">
     <td colspan="7" class="text-center text-lg font-bold my-4">
         No results found!
     </td>
 </tr>
 @endforelse
-<tr class="bg-[#0009]">
+<tr class="bg-[#000a]">
     <td colspan="7">{{ $pets->links('layouts.pagination') }}</td>
 </tr>

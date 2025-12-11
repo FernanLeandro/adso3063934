@@ -1,6 +1,6 @@
 @forelse ($users as $user)
 
-<tr class="{{ $user->id % 2 == 0 ? 'bg-[#0006]' : '' }}">
+<tr class="{{ $user->id % 2 == 0 ? 'bg-[#000a]' : '' }}">
     <th class="hidden md:table-cell">{{ $user->id }}</th>
     <td>
         <div class="avatar">
@@ -31,7 +31,7 @@
                 <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
             </svg>
         </a>
-        <a class="btn btn-outline btn-xs" href="{{ url('users/' . $user->id . '/edit') }}">
+        <a class="btn btn-outline btn-success btn-xs text-white border-green-500 hover:bg-green-600 hover:border-green-600" href="{{ url('users/' . $user->id . '/edit') }}">
             <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="currentColor" viewBox="0 0 256 256">
                 <path d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.68,147.31,64l24-24L216,84.68Z"></path>
             </svg>
@@ -48,11 +48,11 @@
     </td>
 </tr>
 @empty
-<tr class="bg-[#0009">
+<tr class="bg-[#000a">
     <td colspan="7" class="text-center text-lg font-bold my-4">
         No results founded!
     </td>
 @endforelse
-<tr class="bg-[#0009]">
+<tr class="bg-[#000a]">
     <td colspan="7">{{ $users->links('layouts.pagination') }}</td>
 </tr>

@@ -84,6 +84,25 @@
             color: #ffffff !important;
             fill: #ffffff !important;
         }
+
+        /* Basic emulation of Tailwind `md:` utilities so responsive classes work
+           even when Tailwind isn't fully processed. This ensures classes like
+           `md:table-cell`, `md:inline`, `md:flex`, `md:block` behave across views.
+        */
+        /* Mobile-first defaults */
+        .md\:table-cell { display: none; }
+        .md\:inline { display: none; }
+        .md\:flex { display: none; }
+        .md\:block { display: none; }
+        .md\:hidden { display: block; }
+
+        @media (min-width: 768px) {
+            .md\:table-cell { display: table-cell !important; }
+            .md\:inline { display: inline !important; }
+            .md\:flex { display: flex !important; }
+            .md\:block { display: block !important; }
+            .md\:hidden { display: none !important; }
+        }
     </style>
 </head>
 @php

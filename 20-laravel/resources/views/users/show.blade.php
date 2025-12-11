@@ -13,7 +13,7 @@
     Show User
 </h1>
 {{-- Breadcrumbs --}}
-<div class="breadcrumbs text-sm text-white bg-[#0009] rounded-box px-4 py-2">
+<div class="breadcrumbs text-sm text-white bg-[#000a] rounded-box px-4 py-2">
     <ul>
         <li>
             <a href="{{ url('dashboard') }}">
@@ -47,7 +47,7 @@
 </div>
 
 {{-- Card --}}
-<div class="bg-[#0009] p-10 rounded-3xl">
+<div class="bg-[#000a] p-10 rounded-3xl">
     <div class="avatar flex flex-col cursor-pointer hover:scale-110 transition ease-in justify-center items-center">
         <div id="upload" class="mask mask-squircle w-48">
             <img src="{{ asset('images/'.$user->photo) }}" />
@@ -55,30 +55,30 @@
     </div>
     {{-- Data --}}
     <div class="flex gap-2 flex-col md:flex-row">
-        <ul class="list bg-[#0009] mt-4 text-white  rounded-box shadow-md">
+        <ul class="list bg-[#000a] mt-4 text-white  rounded-box shadow-md">
             <li class="list-row">
-                <span class="font-semibold">Document</span><span class="text-[#fff9]">{{ $user->document }}</span>
+                <span class="font-semibold">Document</span><span class="text-[#fffa]">{{ $user->document }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">FullName</span><span class="text-[#fff9]">{{ $user->fullname }}</span>
+                <span class="font-semibold">FullName</span><span class="text-[#fffa]">{{ $user->fullname }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Gender</span><span class="text-[#fff9]">{{ $user->gender }}</span>
+                <span class="font-semibold">Gender</span><span class="text-[#fffa]">{{ $user->gender }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Birthdate</span><span class="text-[#fff9]">{{ $user->birthdate }}</span>
+                <span class="font-semibold">Birthdate</span><span class="text-[#fffa]">{{ $user->birthdate }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Phone</span><span class="text-[#fff9]">{{ $user->phone }}</span>
+                <span class="font-semibold">Phone</span><span class="text-[#fffa]">{{ $user->phone }}</span>
             </li>
         </ul>
-        <ul class="list bg-[#0009] mt-4 text-white rounded-box shadow-md">
+        <ul class="list bg-[#000a] mt-4 text-white rounded-box shadow-md">
             <li class="list-row">
-                <span class="font-semibold">Email</span><span class="text-[#fff9]">{{ $user->email }}</span>
+                <span class="font-semibold">Email</span><span class="text-[#fffa]">{{ $user->email }}</span>
             </li>
             <li class="list-row">
                 <span class="font-semibold">Active</span>
-                <span class="text-[#fff9]"> @if ($user->active == 1)
+                <span class="text-[#000a]"> @if ($user->active == 1)
                     <div class="badge badge-outline badge-success">Active</div>
                     @else
                     <div class="badge badge-outline badge-error">Inactive</div>
@@ -86,7 +86,7 @@
                 </span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Role</span><span class="text-[#fff9]"> @if ($user->role == 'Administrator')
+                <span class="font-semibold">Role</span><span class="text-[#fffa]"> @if ($user->role == 'Administrator')
                     <div class="badge badge-outline badge-warning">Admin</div>
                     @else
                     <div class="badge badge-outline badge-default">Customer</div>
@@ -94,10 +94,10 @@
                 </span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Create At::</span><span class="text-[#fff9]">{{ $user->created_at }}</span>
+                <span class="font-semibold">Create At::</span><span class="text-[#fffa]">{{ $user->created_at }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Update At::</span><span class="text-[#fff9]">{{ $user->updated_at }}</span>
+                <span class="font-semibold">Update At::</span><span class="text-[#fffa]">{{ $user->updated_at }}</span>
             </li>
         </ul>
     </div>

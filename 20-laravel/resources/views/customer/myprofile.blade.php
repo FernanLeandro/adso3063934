@@ -10,7 +10,7 @@
     My Profile
 </h1>
 {{-- Breadcrumbs --}}
-<div class="breadcrumbs text-sm text-white bg-[#0009] rounded-box px-4 py-2">
+<div class="breadcrumbs text-sm text-white bg-[#000a] rounded-box px-4 py-2">
     <ul>
         <li>
             <a href="{{ url('dashboard') }}">
@@ -30,7 +30,7 @@
         </li>
     </ul>
 </div>
-<div class="w-full md:w-[720px] w-[320px] bg-[#0009] rounded-box p-6">
+<div class="w-full md:w-[720px] w-[320px] bg-[#000a] rounded-box p-6">
     <form method="POST" action="{{ url('myprofile/' . $user->id) }}" class="flex flex-col md:flex-row gap-4 mt-4" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -105,7 +105,7 @@
             <small class="badge badge-error w-full mt-1 text-xs py-4">{{ $message }}</small>
             @enderror
 
-            <button class="btn text-white border mt-4 w-full hover:bg-[#fff6]">Edit</button>
+            <button class="btn btn-outline text-white hover:bg-[#000a] mt-4 w-full">Update</button>
         </div>
     </form>
 </div>

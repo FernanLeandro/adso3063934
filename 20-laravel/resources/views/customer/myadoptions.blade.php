@@ -32,7 +32,7 @@
         <span class="underline font-bold">{{ $adopt->user->fullname }}</span>
         {{$adopt->created_at->diffForHumans()}}
     </h4>
-    <a href="{{ url('myadoptions/'.$adopt->id) }}" class="btn bg-[#0006] text-white rounded-full px-6 py-2 shadow-md hover:bg-[#0009] transition-transform flex items-center gap-3">
+    <a href="{{ url('myadoptions/'.$adopt->id) }}" class="btn bg-[#000a] text-white rounded-full px-6 py-2 shadow-md hover:bg-[#000a] transition-transform flex items-center gap-3">
         <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#111] text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />

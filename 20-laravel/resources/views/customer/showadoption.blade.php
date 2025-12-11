@@ -10,7 +10,7 @@
     View Adoptions
 </h1>
 
-<div class="breadcrumbs text-sm text-white bg-[#0009] rounded-box px-4 py-2">
+<div class="breadcrumbs text-sm text-white bg-[#000a] rounded-box px-4 py-2">
     <ul>
         <li>
             <a href="{{ url('dashboard') }}">
@@ -49,7 +49,7 @@
     $user = $user ?? (optional($adopt)->user ?? null);
 @endphp
 
-<div class="bg-[#0009] p-10 rounded-sm">
+<div class="bg-[#000a] p-10 rounded-sm">
     {{-- Photos (side-by-side) --}}
     <div class="flex flex-row gap-6 justify-center items-center mb-6">
         {{-- Adoptante a la izquierda --}}
@@ -67,48 +67,48 @@
     </div>
     {{-- Data --}}
     <div class="flex gap-2 flex-col md:flex-row">
-        <ul class="list bg-[#0009] mt-4 text-white  rounded-box shadow-md">
+        <ul class="list bg-[#000a] mt-4 text-white  rounded-box shadow-md">
             <li class="list-row">
-                <span class="font-semibold">Document</span><span class="text-[#fff9]">{{ optional($user)->document ?? '—' }}</span>
+                <span class="font-semibold">Document</span><span class="text-[#fffa]">{{ optional($user)->document ?? '—' }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">FullName</span><span class="text-[#fff9]">{{ optional($user)->fullname ?? '—' }}</span>
+                <span class="font-semibold">FullName</span><span class="text-[#fffa]">{{ optional($user)->fullname ?? '—' }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Gender</span><span class="text-[#fff9]">{{ optional($user)->gender ?? '—' }}</span>
+                <span class="font-semibold">Gender</span><span class="text-[#fffa]">{{ optional($user)->gender ?? '—' }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Birthdate</span><span class="text-[#fff9]">{{ optional($user)->birthdate ?? '—' }}</span>
+                <span class="font-semibold">Birthdate</span><span class="text-[#fffa]">{{ optional($user)->birthdate ?? '—' }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Phone</span><span class="text-[#fff9]">{{ optional($user)->phone ?? '—' }}</span>
+                <span class="font-semibold">Phone</span><span class="text-[#fffa]">{{ optional($user)->phone ?? '—' }}</span>
             </li>
         </ul>
 
-        <ul class="list bg-[#0009] mt-4 text-white  rounded-box shadow-md">
+        <ul class="list bg-[#000a] mt-4 text-white  rounded-box shadow-md">
             <li class="list-row">
-                <span class="font-semibold">Name</span><span class="text-[#fff9]">{{ optional($pet)->name ?? '—' }}</span>
+                <span class="font-semibold">Name</span><span class="text-[#fffa]">{{ optional($pet)->name ?? '—' }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Kind</span><span class="text-[#fff9]">{{ optional($pet)->kind ?? '—' }}</span>
+                <span class="font-semibold">Kind</span><span class="text-[#fffa]">{{ optional($pet)->kind ?? '—' }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Breed</span><span class="text-[#fff9]">{{ optional($pet)->breed ?? '—' }}</span>
+                <span class="font-semibold">Breed</span><span class="text-[#fffa]">{{ optional($pet)->breed ?? '—' }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Age</span><span class="text-[#fff9]">{{ optional($pet)->age ?? '—' }}</span>
+                <span class="font-semibold">Age</span><span class="text-[#fffa]">{{ optional($pet)->age ?? '—' }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Weight</span><span class="text-[#fff9]">{{ optional($pet)->weight ?? '—' }}</span>
+                <span class="font-semibold">Weight</span><span class="text-[#fffa]">{{ optional($pet)->weight ?? '—' }}</span>
             </li>
         </ul>
-        <ul class="list bg-[#0009] mt-4 text-white rounded-box shadow-md">
+        <ul class="list bg-[#000a] mt-4 text-white rounded-box shadow-md">
             <li class="list-row">
-                <span class="font-semibold">Location</span><span class="text-[#fff9]">{{ optional($pet)->location ?? '—' }}</span>
+                <span class="font-semibold">Location</span><span class="text-[#fffa]">{{ optional($pet)->location ?? '—' }}</span>
             </li>
             <li class="list-row">
                 <span class="font-semibold">Active</span>
-                <span class="text-[#fff9]"> @if (optional($pet)->active == 1)
+                <span class="text-[#000a]"> @if (optional($pet)->active == 1)
                     <div class="badge badge-outline badge-success">Yes</div>
                     @else
                     <div class="badge badge-outline badge-error">No</div>
@@ -117,22 +117,22 @@
             </li>
             <li class="list-row">
                 <span class="font-semibold">Status</span>
-                <span class="text-[#fff9]">
+                <span class="text-[#fffa]">
                     <div class="badge badge-outline">Adopted</div>
                 </span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Create At::</span><span class="text-[#fff9]">{{ optional(optional($pet)->created_at)->toDayDateTimeString() ?? '—' }}</span>
+                <span class="font-semibold">Create At::</span><span class="text-[#fffa]">{{ optional(optional($pet)->created_at)->toDayDateTimeString() ?? '—' }}</span>
             </li>
             <li class="list-row">
-                <span class="font-semibold">Update At::</span><span class="text-[#fff9]">{{ optional(optional($pet)->updated_at)->toDayDateTimeString() ?? '—' }}</span>
+                <span class="font-semibold">Update At::</span><span class="text-[#fffa]">{{ optional(optional($pet)->updated_at)->toDayDateTimeString() ?? '—' }}</span>
             </li>
         </ul>
     </div>
     {{-- Description --}}
     @if(!empty(optional($pet)->description))
-    <div class="mt-6 bg-[#0009] p-4 rounded-md text-white">
-        <h3 class="font-semibold mb-2">Description</h3>
+    <div class="mt-6 bg-[#000a] p-4 rounded-md text-[#fffa]">
+        <h3 class="font-semibold mb-2 text-white">Description</h3>
         <p>{{ optional($pet)->description }}</p>
     </div>
     @endif

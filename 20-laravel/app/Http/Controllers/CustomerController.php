@@ -76,10 +76,38 @@ class CustomerController extends Controller
         $pets = Pet::where('status', 0)->orderBy('id', 'desc')->paginate(10);
         return view('customer.makeadoptions')->with('pets', $pets);
     }
-    public function confirmadoption(Request $request) {}
+    public function confirmadoption(Request $request)
+    {
+        $pet = Pet::find($request->id);
+        if (!$pet) {
+            return redirect('makeadoption')->with('message', 'Pet not found');
+        }
+        return view('customer.confirmadoption')->with('pet', $pet);
+    }
+
     public function makeadoption(Request $request)
     {
-        return "Make adoptions";
+        $pet = Pet::find($request->id);
+        if (!$pet) {
+            return redirect('makeadoption')->with('message', 'Pet not found');
+        }
+
+        // If already adopted, do nothing
+        if ($pet->status == 1) {
+            return redirect('makeadoption')->with('message', 'This pet is already adopted.');
+        }
+
+        // Create adoption record and update pet status
+        $adopt = new Adoption();
+        $adopt->user_id = Auth::user()->id;
+        $adopt->pet_id = $pet->id;
+        if ($adopt->save()) {
+            $pet->status = 1;
+            $pet->save();
+            return redirect('makeadoption')->with('message', 'Congratulations! You adopted: ' . $pet->name);
+        }
+
+        return redirect('makeadoption')->with('message', 'Unable to complete the adoption.');
     }
     public function search(Request $request)
     {

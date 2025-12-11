@@ -5,8 +5,8 @@
 @section('content')
 
 
-<h1 class="text-4x1 text-white flex gap-2 items-center justify-center pb-4 border-b-2 border-neutral-50 mb-10">
-    <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="currentColor" viewBox="0 0 256 256">
+<h1 class="text-4xl text-white flex gap-2 items-center justify-center pb-4 border-b-2 border-neutral-50 mb-10">
+    <svg xmlns="http://www.w3.org/2000/svg" class="size-12" fill="currentColor" viewBox="0 0 256 256">
         <path
             d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1-7.37-4.89,8,8,0,0,1,0-6.22A8,8,0,0,1,192,112a24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.84,8,57,57,0,0,0-98.16,0,8,8,0,1,1-13.84-8,72.06,72.06,0,0,1,33.74-29.92,48,48,0,1,1,58.36,0A72.06,72.06,0,0,1,190.92,212ZM128,176a32,32,0,1,0-32-32A32,32,0,0,0,128,176ZM72,120a8,8,0,0,0-8-8A24,24,0,1,1,87.24,82a8,8,0,1,0,15.5-4A40,40,0,1,0,37,117.51,67.94,67.94,0,0,0,9.6,139.19a8,8,0,1,0,12.8,9.61A51.6,51.6,0,0,1,64,128,8,8,0,0,0,72,120Z">
         </path>
@@ -16,8 +16,8 @@
 
 
 
-<div class="join bg-[#0006] max-auto rounded-box">
-    <a href="{{ route('users.create') }}" class="btn btn-outline btn-success text-white join-item">
+<div class="join bg-[#000a] max-auto rounded-box">
+    <a href="{{ route('users.create') }}" class="btn btn-outline btn-success text-white border-green-500 hover:bg-green-600 hover:border-green-600 join-item">
         <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="currentColor" viewBox="0 0 256 256">
             <path
                 d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z">
@@ -25,7 +25,7 @@
         </svg>
         <span class="hidden md:inline">Add User</span>
     </a>
-    <a class="btn btn-outline text-white hover:bg-[#fff6] hover:text-white join-item"
+    <a class="btn btn-outline text-white hover:bg-[#000a] hover:text-white join-item"
         href="{{ url('export/users/pdf') }}">
         <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="currentColor" viewBox="0 0 256 256">
             <path
@@ -34,7 +34,7 @@
         </svg>
         <span class="hidden md:inline">Export</span>
     </a>
-    <a class="btn btn-outline text-white hover:bg-[#fff6] hover:text-white join-item"
+    <a class="btn btn-outline text-white hover:bg-[#000a] hover:text-white join-item"
         href="{{ url('export/users/excel') }}">
         <svg xmlns=" http://www.w3.org/2000/svg" class="size-6" fill="currentColor" viewBox="0 0 256 256">
             <path
@@ -46,7 +46,7 @@
     <form class="join-item" action="{{ url('import/users') }}" method="post" enctype="multipart/form-data">
         @csrf
         <input type="file" name="file" id="file" class="hidden" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-        <button type="button" class="btn btn-outline text-white hover:bg-[#fff6] hover:text-white btn-import">
+        <button type="button" class="btn btn-outline text-white hover:bg-[#000a] hover:text-white btn-import">
             <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="currentColor" viewBox="0 0 256 256">
                 <path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-42.34-77.66a8,8,0,0,1-11.32,11.32L136,139.31V184a8,8,0,0,1-16,0V139.31l-10.34,10.35a8,8,0,0,1-11.32-11.32l24-24a8,8,0,0,1,11.32,0Z"></path>
             </svg>
@@ -55,7 +55,7 @@
     </form>
 </div>
 {{-- Options --}}
-<label class="input text-white bg-[#0009] outline-none mb-10">
+<label class="input text-white bg-[#000a] outline-none mb-10">
     <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
             <circle cx="11" cy="11" r="8"></circle>
@@ -67,10 +67,10 @@
 
 
 
-<div class="overflow-x-auto text-white rounded-box bg-[#fff9]">
-    <table class="table bg-[#0009]">
+<div class="overflow-x-auto text-white rounded-box bg-[#000a]">
+    <table class="table bg-[#000a]">
         <!-- head -->
-        <thead class="text-white bg-[#0006]">
+        <thead class="text-white bg-[#000a]">
             <tr>
                 <th class="hidden md:table-cell">Id</th>
                 <th>Photo</th>
@@ -84,7 +84,7 @@
         <tbody>
             @foreach ($users as $user)
 
-            <tr class="{{ $user->id % 2 == 0 ? 'bg-[#0006]' : '' }}">
+            <tr class="{{ $user->id % 2 == 0 ? 'bg-[#000a]' : '' }}">
                 <th class="hidden md:table-cell">{{ $user->id }}</th>
                 <td>
                     <div class="avatar">
@@ -118,7 +118,7 @@
                             </path>
                         </svg>
                     </a>
-                    <a class="btn btn-outline btn-xs" href="{{ url('users/' . $user->id . '/edit') }}">
+                    <a class="btn btn-outline btn-success btn-xs text-white border-green-500 hover:bg-green-600 hover:border-green-600" href="{{ url('users/' . $user->id . '/edit') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="currentColor"
                             viewBox="0 0 256 256">
                             <path
@@ -142,7 +142,7 @@
                 </td>
             </tr>
             @endforeach
-            <tr class="bg-[#0009]">
+            <tr class="bg-[#000a]">
                 <td colspan="7">{{ $users->links('layouts.pagination') }}</td>
             </tr>
         </tbody>
@@ -167,7 +167,7 @@
     </form>
 </dialog>
 {{-- Modal Delete --}}
-<dialog id="modal_delete" class="modal bg-[#0009]">
+<dialog id="modal_delete" class="modal bg-[#000a]">
     <div class="modal-box bg-[#000] text-white">
         <h3 class="text-lg font-bold mb-4">
             Are you sure?!
