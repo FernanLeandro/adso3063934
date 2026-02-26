@@ -13,14 +13,30 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'document',
+        'fullname',
+        'gender',
+        'birthdate',
+        'photo',
+        'phone',
         'email',
+        'email_verified_at',
         'password',
+        'active',
+        'role',
+        'remember_token',
     ];
 
     /**
@@ -43,6 +59,19 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'birthdate' => 'datetime',
+            'active' => 'boolean',
+        ];
+    }
+
+    /**
+     * Generar token de API
+     */
+    public function createToken($name)
+    {
+        $token = bin2hex(random_bytes(32));
+        return (object) [
+            'plainTextToken' => $token
         ];
     }
 }

@@ -1,0 +1,902 @@
+/* Font ------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* WebKit browsers: remove scrollbar size so it doesn't occupy layout space */
+*::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* Inputs ------------ */
+
+/* body ------------ */
+
+body {
+    color: #1E8600;
+    font-family: Poppins;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    overflow: hidden;
+
+    /*main ---------- */
+    main {
+        background-color: #CBFFBC;
+        border-radius: 5px;
+        height: 526px;
+        width: 246px;
+        position: relative;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        h2 {
+            font-size: medium;
+            font-weight: 400;
+            margin-left: 0.8rem;
+        }
+
+
+        &.hide {
+            display: none;
+        }
+
+        /*login */
+        &#login {
+            background: url(../imgs/Group3.png) no-repeat top center;
+            background-size: cover;
+
+
+            form {
+                padding-top: 10rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                bottom: 1rem;
+                gap: 1rem;
+
+                /* remove global form shadow for login panel */
+                box-shadow: none;
+                background: transparent;
+
+
+                label {
+                    display: flex;
+                    flex-direction: column;
+
+                    input {
+                        color: #1E8600;
+                        font-family: Poppins;
+                        border: 2px solid #1E8600;
+                        border-radius: 20px;
+                        width: 199px;
+                        height: 34px;
+                        outline: none;
+                        text-indent: 0.4rem;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+                        &::placeholder {
+                            color: #1E860099;
+                        }
+                    }
+                }
+
+                button {
+                    font-family: Poppins;
+                    background-color: #1E8600;
+                    color: #CBFFBC;
+                    cursor: pointer;
+                    border: 2px solid white;
+                    border-radius: 20px;
+                    width: 117px;
+                    height: 37px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                    transition: transform 0.2s ease-in;
+
+                    &:hover {
+                        transform: scale(1.03);
+                    }
+                }
+            }
+        }
+
+        /*Dashboard ---------- */
+        &#dashboard {
+            nav {
+
+                display: flex;
+                justify-content: space-around;
+                padding-top: 0.7rem;
+
+                a:link,
+                a:visited {
+                    background-color: #1E8600;
+                    color: white;
+                    border: 2px solid white;
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    border-radius: 20px;
+                    text-decoration: none;
+                    text-indent: -9999px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                    width: 92px;
+                    height: 29px;
+                    transition: transform 0.2s ease-in;
+
+                    &.btnLogout {
+                        background-color: #860000;
+                    }
+
+                    &:hover {
+                        transform: scale(1.03);
+                    }
+                }
+            }
+
+            section.list {
+                display: flex;
+                justify-self: center;
+                align-items: center;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+
+                div.row {
+                    border: 2px solid #1E8600;
+                    background-color: white;
+                    border-radius: 20px;
+                    display: flex;
+                    gap: 0.4rem;
+                    width: 228px;
+                    height: 34px;
+
+                    img {
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        flex-shrink: 0;
+                    }
+
+                    div.data {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: start;
+                        justify-content: center;
+
+                        h3 {
+                            font-size: 14px;
+                            font-weight: 600;
+                            margin: 0;
+                        }
+
+                        h4 {
+                            font-size: 10px;
+                            font-weight: 400;
+                            margin: 0;
+                        }
+                    }
+
+                    nav.actions {
+                        padding-top: 0;
+                        display: flex;
+                        gap: 0.5rem;
+                        margin-left: auto;
+                        align-items: center;
+
+                        a:link,
+                        a:visited {
+                            width: 25px;
+                            height: 23px;
+
+                            &.show {
+                                background: url(../imgs/show.png) no-repeat top center;
+                            }
+
+                            &.edit {
+                                background: url(../imgs/edit.png) no-repeat top center;
+                            }
+
+                            &.delete {
+                                background: url(../imgs/delet.png) no-repeat top center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        header {
+            background-color: #1E8600;
+            border-radius: 5px 5px 0 0;
+            position: sticky;
+            top: 0;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            height: 55px;
+            z-index: 2;
+        }
+
+        /* Add view ----------- */
+        &#add {
+            background-color: #CBFFBC;
+            border-radius: 5px;
+            height: 526px;
+            width: 246px;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            form {
+                padding-top: 0.8rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.7rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            label {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                font-size: 0.85rem;
+                color: #1E8600;
+            }
+
+            input {
+                margin-top: 0.25rem;
+                width: 100%;
+                max-width: 206px;
+                height: 36px;
+                border-radius: 30px;
+                border: 2px solid #1E8600;
+                padding-left: 1rem;
+                outline: none;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .form-actions {
+                margin-top: 0.6rem;
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                width: 100%;
+                padding-bottom: 1rem;
+            }
+
+            .addBtn,
+            .cancelBtn {
+                width: 100px;
+                height: 36px;
+                border-radius: 20px;
+                color: #CBFFBC;
+                border: 2px solid white;
+                cursor: pointer;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                transition: transform 0.2s ease-in;
+            }
+
+            .addBtn {
+                background-color: #1E8600;
+            }
+
+            .cancelBtn {
+                background-color: #860000;
+            }
+        }
+
+        /* Show view ----------- */
+        &#show {
+            background-color: #CBFFBC;
+            border-radius: 5px;
+            height: 526px;
+            width: 246px;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-bottom: 1rem;
+
+            header {
+                background-color: #1E8600;
+                color: #fff;
+                height: 55px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: sticky;
+                top: 0;
+                z-index: 3;
+                border-radius: 5px 5px 0 0;
+            }
+
+            header .btnBack {
+                position: absolute;
+                left: 12px;
+                color: #fff;
+                text-decoration: none;
+                font-size: 20px;
+            }
+
+            header .title {
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+
+            .show-image {
+                display: flex;
+                justify-content: center;
+                margin-top: 6px;
+            }
+
+            .show-image img {
+                width: 140px;
+                height: 140px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
+            .info-card {
+                width: 210px;
+                margin: 8px auto 0;
+                background: #fff;
+                border: 2px solid #1E8600;
+                border-radius: 20px;
+                overflow: hidden;
+            }
+
+            .info-card .row {
+                display: flex;
+                justify-content: space-between;
+                padding: 12px 14px;
+                border-bottom: 1px solid #1E8600;
+                align-items: center;
+            }
+
+            .info-card .row:last-child {
+                border-bottom: none;
+            }
+
+            .label {
+                color: #1E8600;
+                font-weight: 600;
+            }
+
+            .value {
+                color: #1E8600;
+                text-align: right;
+                max-width: 120px;
+            }
+        }
+
+        /* Edit view styles */
+        &#edit {
+            background-color: #CBFFBC;
+            border-radius: 5px;
+            height: 526px;
+            width: 246px;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            header {
+                background-color: #1E8600;
+                color: #fff;
+                height: 55px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: sticky;
+                top: 0;
+                z-index: 3;
+                border-radius: 5px 5px 0 0;
+            }
+
+            header .btnBack {
+                position: absolute;
+                left: 12px;
+                color: #fff;
+                text-decoration: none;
+                font-size: 20px;
+            }
+
+            .title {
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+
+            form {
+                padding-top: 0.8rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.7rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            label {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                font-size: 0.85rem;
+                color: #1E8600
+            }
+
+            input {
+                margin-top: 0.25rem;
+                width: 100%;
+                max-width: 206px;
+                height: 36px;
+                border-radius: 30px;
+                border: 2px solid #1E8600;
+                padding-left: 1rem;
+                outline: none;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            textarea {
+                margin-top: 0.25rem;
+                width: 100%;
+                max-width: 206px;
+                min-height: 72px;
+                border-radius: 12px;
+                border: 2px solid #1E8600;
+                padding: 0.6rem;
+                outline: none;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                resize: vertical;
+            }
+
+            .form-actions {
+                margin-top: 0.4rem;
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                width: 100%;
+                padding-bottom: 0.6rem;
+            }
+
+            .saveBtn {
+                width: 100px;
+                height: 36px;
+                border-radius: 20px;
+                color: #CBFFBC;
+                border: 2px solid white;
+                cursor: pointer;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                background-color: #1E8600;
+                transition: transform 0.2s ease-in;
+            }
+
+            .cancelBtn {
+                width: 100px;
+                height: 36px;
+                border-radius: 20px;
+                color: #CBFFBC;
+                border: 2px solid white;
+                cursor: pointer;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                background-color: #860000;
+                transition: transform 0.2s ease-in;
+            }
+        }
+
+        /* Inputs ------------ */
+        input,
+        textarea {
+            color: #1E8600;
+            font-family: Poppins;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #1E860099;
+        }
+
+        /* Buttons ------------ */
+        .addBtn:hover,
+        .cancelBtn:hover,
+        .saveBtn:hover,
+        .btnAdd:hover,
+        .btnLogout:hover {
+            transform: scale(1.03);
+        }
+
+        /* Nav anchors transitions */
+        #dashboard nav a:link,
+        #dashboard nav a:visited {
+            transition: transform 0.2s ease-in;
+        }
+
+        #dashboard nav a:link:hover,
+        #dashboard nav a:visited:hover {
+            transform: scale(1.03);
+        }
+
+        /* Shadows */
+        form {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+            border-radius: 12px;
+        }
+    }
+}
+
+/* Add view ----------- */
+main#add {
+    background-color: #CBFFBC;
+    border-radius: 5px;
+    height: 526px;
+    width: 246px;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Show view ----------- */
+main#show {
+    background-color: #CBFFBC;
+    border-radius: 5px;
+    height: 526px;
+    width: 246px;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 1rem;
+}
+
+main#show header {
+    background-color: #1E8600;
+    color: #fff;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    border-radius: 5px 5px 0 0;
+}
+
+main#show header .btnBack {
+    position: absolute;
+    left: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+main#add header .btnBack {
+    position: absolute;
+    left: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* size the back image inside the header anchor */
+main#show header .btnBack img,
+main#edit header .btnBack img,
+main#add header .btnBack img {
+    width: 22px;
+    height: auto;
+    display: block;
+}
+
+main#show header .title {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+main#show .show-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+main#show .show-image img {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+}
+
+main#show .info-card {
+    width: 210px;
+    margin: 8px auto 0;
+    background: #fff;
+    border: 2px solid #1E8600;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+main#show .info-card .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-bottom: 1px solid #1E8600;
+    align-items: center;
+}
+
+main#show .info-card .row:last-child {
+    border-bottom: none;
+}
+
+main#show .label {
+    color: #1E8600;
+    font-weight: 600;
+}
+
+main#show .value {
+    color: #1E8600;
+    text-align: right;
+    max-width: 120px;
+}
+
+
+/* Edit view styles */
+main#edit {
+    background-color: #CBFFBC;
+    border-radius: 5px;
+    height: 526px;
+    width: 246px;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+main#edit header {
+    background-color: #1E8600;
+    color: #fff;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    border-radius: 5px 5px 0 0;
+}
+
+main#edit header .btnBack {
+    position: absolute;
+    left: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+main#edit .title {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+main#edit form {
+    padding-top: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+main#edit label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    color: #1E8600
+}
+
+/* Edit inputs and textarea */
+main#edit input {
+    margin-top: 0.25rem;
+    width: 100%;
+    max-width: 206px;
+    height: 36px;
+    border-radius: 30px;
+    border: 2px solid #1E8600;
+    padding-left: 1rem;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+main#edit textarea {
+    margin-top: 0.25rem;
+    width: 100%;
+    max-width: 206px;
+    min-height: 72px;
+    border-radius: 12px;
+    border: 2px solid #1E8600;
+    padding: 0.6rem;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    resize: vertical;
+}
+
+/* Form actions for edit view */
+main#edit .form-actions {
+    margin-top: 0.4rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 0.6rem;
+}
+
+/* Buttons */
+.saveBtn {
+    width: 100px;
+    height: 36px;
+    border-radius: 20px;
+    color: #CBFFBC;
+    border: 2px solid white;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: #1E8600;
+    transition: transform 0.2s ease-in;
+}
+
+.cancelBtn {
+    width: 100px;
+    height: 36px;
+    border-radius: 20px;
+    color: #CBFFBC;
+    border: 2px solid white;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: #860000;
+    transition: transform 0.2s ease-in;
+}
+
+/* Ensure cancel button inside edit uses the styled cancelBtn */
+main#edit .cancelBtn {
+    background-color: #860000;
+}
+
+
+main#add form {
+    padding-top: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+main#add label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    color: #1E8600;
+}
+
+main#add input {
+    margin-top: 0.25rem;
+    width: 100%;
+    max-width: 206px;
+    height: 36px;
+    border-radius: 30px;
+    border: 2px solid #1E8600;
+    padding-left: 1rem;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+main#add .form-actions {
+    margin-top: 0.6rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+main#add .addBtn,
+main#add .addBtn,
+main#add .cancelBtn {
+    width: 100px;
+    height: 36px;
+    border-radius: 20px;
+    color: #CBFFBC;
+    border: 2px solid white;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in;
+}
+
+main#add .addBtn {
+    background-color: #1E8600;
+}
+
+main#add .cancelBtn {
+    background-color: #860000;
+}
+
+/* Hover transforms for buttons */
+.addBtn:hover,
+.cancelBtn:hover,
+.saveBtn:hover,
+#edit .cancelBtn:hover,
+.btnAdd:hover,
+.btnLogout:hover {
+    transform: scale(1.03);
+}
+
+.saveBtn:hover {
+    transform: scale(1.03);
+}
+
+/* Make header-nav anchors transform consistent */
+#dashboard nav a:link,
+#dashboard nav a:visited {
+    transition: transform 0.2s ease-in;
+}
+
+#dashboard nav a:link:hover,
+#dashboard nav a:visited:hover {
+    transform: scale(1.03);
+}
+
+/* Add subtle shadows to forms and info cards */
+main#add form,
+main#edit form {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+}
+
+main#show .info-card {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Simple fade helpers for view transitions */
+main.fade-in,
+main.fade-out,
+main {
+    transition: opacity 220ms ease, transform 220ms ease;
+}
+
+main.fade-in {
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+main.fade-in.in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+main.fade-out {
+    opacity: 0;
+    transform: translateY(6px);
+    pointer-events: none;
+}
+
+/* Give back buttons the same hover transform as other buttons */
+a.btnBack {
+    transition: transform 0.2s ease-in;
+    display: inline-flex;
+    align-items: center;
+}
+
+a.btnBack:hover {
+    transform: scale(1.03);
+}

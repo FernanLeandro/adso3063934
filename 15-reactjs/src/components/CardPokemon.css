@@ -1,0 +1,42 @@
+.pokemon-card {
+    border-radius: 0.8rem;
+    border: 2px solid #ccc;
+    padding: 1rem;
+    margin: 0.8rem;
+    background-color: #0006;
+    position: relative;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.pokemon-card:hover {
+    transform: scale(1.05);
+}
+.pokemon-img {
+    height: 120px;
+    object-fit: cover;
+    width: 120px;
+}
+.pokemon-type {
+    color: #ccc;
+    font-style: italic;
+    margin: 0.4rem 0;
+}
+.pokemon-power {
+    font-weight: bold;
+    margin: 0.4rem 0;
+    color: #ddd;
+}
+.legendary-badge {
+    display: inline-block;
+    background-color: gold;
+    color: #333;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.2rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    transform: rotate(5deg);
+}

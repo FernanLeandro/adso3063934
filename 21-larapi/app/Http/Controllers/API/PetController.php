@@ -49,11 +49,9 @@ class PetController extends Controller
         }
     }
 
-    public function show(Request $request)
+    public function show($id)
     {
-        // Asumiendo que el ID se pasa en la URL (ej: /api/pets/1) y se usa la inyección de ruta implícita
-        // Si usas un Request, necesitarías el ID del request: $pet = Pet::find($request->id);
-        $pet = Pet::find($request->id);
+        $pet = Pet::find($id);
 
         if (!$pet) {
             return response()->json(['ERROR' => 'Pet not found 😢'], 404);
@@ -77,7 +75,7 @@ class PetController extends Controller
         }
 
         try {
-        
+
             $validatedData = $request->validate([
                 'name' => ['sometimes', 'required', 'string'],
                 'kind' => ['sometimes', 'required', 'string'],
@@ -94,7 +92,6 @@ class PetController extends Controller
                 'message' => 'Pet updated successfully ✅',
                 'pet' => $pet
             ], 200);
-
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
                 'message' => 'Error in the update request',
@@ -106,9 +103,9 @@ class PetController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $pet = Pet::find($request->id);
+        $pet = Pet::find($id);
         if ($pet) {
             if ($pet->delete()) {
                 return response()->json([
@@ -116,6 +113,7 @@ class PetController extends Controller
                     'pet' => $pet
                 ], 200);
             }
+            return response()->json(['error' => 'Failed to delete pet'], 500);
         } else {
             return response()->json(['error' => 'Pet not found!'], 404);
         }
