@@ -1,0 +1,75 @@
+/* Styles for Example 8: Data Fetching */
+
+.example8 { padding-top: 1rem; }
+
+.example8-panel {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.example8-list {
+  flex: 1 1 60%;
+  background: linear-gradient(180deg,#0f1724 0%, #0b2a33 100%);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+}
+
+.example8-controls { 
+  display:flex; 
+  gap:0.6rem; 
+  align-items:center;
+  margin-bottom:0.8rem; 
+}
+
+.grid-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.8rem;
+}
+
+.poke-cell {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.04);
+  color: white;
+  padding: 0.6rem;
+  display:flex;
+  flex-direction:column;
+  gap:0.4rem;
+  align-items:center;
+  justify-content:center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.poke-cell:hover { transform: translateY(-4px); box-shadow:0 8px 20px rgba(2,6,23,0.6); }
+
+.cell-number { font-size:0.8rem; color: rgba(255,255,255,0.7); }
+.cell-img { width:72px; height:72px; object-fit:contain; }
+.cell-name { text-transform: capitalize; font-weight:700; color: #fff; text-shadow: 0 3px 8px rgba(2,6,23,0.6); }
+
+.example8-details {
+  width: 340px;
+  min-height: 220px;
+  background: linear-gradient(180deg,#0b1220 0%, #0a1320 100%);
+  border-radius: 12px;
+  padding: 1rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+}
+
+.detail-card { text-align:center; }
+.detail-img { width:160px; height:160px; object-fit:contain; margin-bottom:0.5rem; }
+.detail-empty { color: rgba(255,255,255,0.7); display:flex; align-items:center; justify-content:center; height:100%; }
+
+.btn-small { background: linear-gradient(90deg,#667eea,#764ba2); color:white; padding:0.4rem 0.6rem; border-radius:8px; border:none; cursor:pointer; }
+.btn-small:disabled { opacity:0.5; cursor:not-allowed; }
+
+.muted { color: rgba(255,255,255,0.65); margin-left: 0.6rem; }
+
+@media (max-width: 900px) {
+  .example8-panel { flex-direction: column; }
+  .example8-details { width:100%; }
+}

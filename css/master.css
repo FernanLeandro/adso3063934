@@ -265,6 +265,12 @@ main {
                 width: 60px;
             }
 
+            &:hover span.Lies_of_P {
+                border-radius: 50px;
+                background-color: #8b5cf6;
+                width: 60px;
+            }
+
         }
     }
 }
