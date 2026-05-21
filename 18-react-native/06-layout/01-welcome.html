@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - Welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #0b111a;
+            font-family: 'EB Garamond', serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            color: #d2b88b;
+            position: relative;
+        }
+
+        .mobile-container {
+            width: 100%;
+            max-width: 420px;
+            height: 900px;
+            
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            
+            
+             /* Oscurecemos un poco el fondo para que resalten las letras */
+        
+            background-color: #080b10;
+            background-image: linear-gradient(rgba(4, 9, 14, 0.5), rgba(4, 9, 14, 0.5)), url('./images/image%2013.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 40px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.8);
+            border: 2px solid rgba(210, 184, 139, 0.15);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transform-origin: center center;
+            padding: 20px 30px 30px;}
+
+        /* HEADER */
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+        }
+
+        .logo {
+            width: 140px;
+            object-fit: contain;
+            margin: 0;
+        }
+
+        .options-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 36px;
+            object-fit: contain;
+            cursor: pointer;
+        }
+
+        /* CHARACTER IMAGE */
+        .character-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin-top: 0px;
+            position: relative;
+            z-index: 5;
+            height: 270px;
+        }
+
+        .character-img {
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.8));
+            transform: translateX(-15px); /* Desplaza la imagen a la izquierda para centrar visualmente su rostro */
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            width: 80px;
+            object-fit: contain;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .slider-arrow:hover {
+            opacity: 1;
+        }
+
+        .arrow-left {
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .arrow-right {
+            right: 0;
+            transform: translateY(-50%) scaleX(-1); /* Invertida según instrucciones */
+        }
+
+        /* INFO CARD */
+        .info-card {
+            background-color: #080b10;
+            border: 4px solid #eb3d3d;
+            border-radius: 40px;
+            margin: -30px 10px 0;
+            padding: 15px 30px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+        }
+
+        .title {
+            color: #eb3d3d;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        /* Divisores de imagen */
+        .card-divider {
+            width: 130%;
+            max-width: 340px;
+            height: 18px;
+            object-fit: contain;
+            margin: 4px -15%;
+            opacity: 0.9;
+        }
+
+        .description {
+            font-size: 18px;
+            line-height: 1.3;
+            color: #d2b88b;
+            margin: 5px 0;
+        }
+
+        /* PAGINATION */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 12px;
+        }
+
+        .dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1px solid #d2b88b;
+            background: transparent;
+        }
+
+        .dot.active {
+            border: 2px solid #eb3d3d;
+        }
+
+        /* BOTTOM ACTIONS */
+        .bottom-actions {
+            margin-top: auto;
+            
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+        
+            padding: 0 5px;}
+
+        
+
+        .action-link {
+            position: relative;
+            color: #d2b88b;
+            text-decoration: none;
+            font-size: 16px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .action-link::before,
+        .action-link::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 105px; /* Ancho de la línea decorativa */
+            height: 10px; /* Alto de la línea decorativa */
+            background-image: url('./images/assets%202%2018.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            pointer-events: none; /* Para que las cajas no interfieran con los clics si se solapan */
+        }
+
+        .action-link::before {
+            top: -14px;
+        }
+
+        .action-link::after {
+            bottom: -14px;
+        }
+
+        
+
+        
+
+        
+
+        .action-link:hover {
+            color: #ffffff;
+        }
+
+    
+        /* ====== MODAL MENU ====== */
+        .modal-overlay {
+            display: none;
+            position: absolute;
+            inset: 0;
+            background: rgba(4, 9, 14, 0.88);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background-color: #080b10;
+            border: 2px solid rgba(210, 184, 139, 0.4);
+            border-radius: 30px;
+            padding: 18px 20px 22px;
+            width: 65%;
+            max-width: 240px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+            animation: modalIn 0.25s ease;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -26px;
+            right: -26px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            object-fit: contain;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover { opacity: 0.7; }
+
+        
+
+        .modal-divider {
+            width: 100%;
+            height: 22px;
+            object-fit: contain;
+            margin: 2px 0;
+            opacity: 0.9;
+        }
+
+        .modal-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin: 10px 0;
+        }
+
+        .modal-link {
+            font-family: 'EB Garamond', serif;
+            color: #d2b88b;
+            text-decoration: none;
+            font-size: 18px;
+            letter-spacing: 1px;
+            padding: 7px 0;
+            transition: color 0.25s, letter-spacing 0.25s;
+            display: block;
+        }
+
+        .modal-link:hover { color: #ffffff; letter-spacing: 2px; }
+
+        .modal-link.modal-link-logout { color: #eb3d3d; }
+        .modal-link.modal-link-logout:hover { color: #ff6666; letter-spacing: 2px; }
+
+        .modal-link.active { color: #eb3d3d; }
+
+        .modal-link-logout {
+            font-family: 'EB Garamond', serif;
+            color: #eb3d3d;
+            text-decoration: none;
+            font-size: 18px;
+            letter-spacing: 1px;
+            padding: 8px 0;
+            margin-top: 4px;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-link-logout:hover { opacity: 1; }
+
+    
+        .form-input::placeholder {
+            color: #d2b88b;
+        }
+        .form-textarea::placeholder {
+            color: #d2b88b;
+        }
+        .custom-select-input::placeholder {
+            color: #d2b88b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container">
+        
+        <!-- HEADER -->
+        <div class="header">
+            <img src="./images/image 1.png" alt="Lies of P" class="logo" onerror="this.src='https://via.placeholder.com/120x60?text=Logo'">
+            <!-- Ícono de opciones superior derecho (ajusta el nombre si es otro) -->
+            <img src="./images/assets 4 3.png" alt="Options" class="options-btn" onerror="this.src='https://via.placeholder.com/32x48?text=Icon'">
+        </div>
+
+        <!-- CHARACTER -->
+        <div class="character-container">
+            <!-- Flecha izquierda -->
+            <img src="./images/assets%203%201.png" alt="Previous" class="slider-arrow arrow-left" onerror="this.src='https://via.placeholder.com/80x20?text=<-'">
+            
+            <!-- Pinocchio -->
+            <img src="./images/image 14.png" alt="Pinocchio" class="character-img" onerror="this.src='https://liesofp.wiki.fextralife.com/file/Lies-of-P/pinocchio_npc_lies_of_p_wiki_guide_200px.png'">
+            
+            <!-- Flecha derecha (invertida en CSS) -->
+            <img src="./images/assets%203%201.png" alt="Next" class="slider-arrow arrow-right" onerror="this.src='https://via.placeholder.com/80x20?text=->'">
+        </div>
+
+        <!-- INFO CARD -->
+        <div class="info-card">
+            <h1 class="title">PINOCCHIO</h1>
+            
+            <img src="./images/assets%202%201.png" alt="Divider Top" class="card-divider">
+            
+            <p class="description">
+                Pinocchio is a puppet with a<br>
+                human appearance created by<br>
+                Geppetto to save the ruined<br>
+                city of Krat.
+            </p>
+            
+            <img src="./images/assets%202%202.png" alt="Divider Bottom" class="card-divider">
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="pagination">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <!-- BOTTOM ACTIONS -->
+        <div class="bottom-actions">
+            <a href="02-login.html" class="action-link">Login</a>
+            <a href="03-register.html" class="action-link">Register</a>
+
+            </div>
+        
+
+        <!-- ====== MODAL MENU ====== -->
+        <div class="modal-overlay" id="mainModal">
+            <div class="modal-box">
+                <!-- Botón cerrar -->
+                <img src="./images/assets%205%203.png" alt="Close" class="modal-close" id="modalClose" onclick="closeModal()">
+
+                <img src="./images/assets%202%203.png" alt="Divider" class="modal-divider" style="margin-bottom:8px;">
+
+                <nav class="modal-nav">
+                    <a href="01-welcome.html" class="modal-link">Welcome</a>
+                    <img src="./images/assets%202%203.png" alt="Divider" class="modal-divider">
+                    <a href="02-login.html" class="modal-link">Login</a>
+                    <img src="./images/assets%202%203.png" alt="Divider" class="modal-divider">
+                    <a href="03-register.html" class="modal-link">Register</a>
+                    <img src="./images/assets%202%203.png" alt="Divider" class="modal-divider">
+                    <a href="04-dashboard.html" class="modal-link">Dashboard</a>
+                </nav>
+
+                <img src="./images/assets%202%203.png" alt="Divider" class="modal-divider" style="margin-top:8px;">
+            </div>
+        </div>
+
+    </div><!-- end mobile-container -->
+
+
+    <script>
+        function fitScreen() {
+            const container = document.querySelector('.mobile-container');
+            // Calcula el factor de escala: si la pantalla es menor a 950px, lo encoge proporcionalmente.
+            const scale = Math.min(1, window.innerHeight / 950);
+            container.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
+        }
+        window.addEventListener('resize', fitScreen);
+        fitScreen();
+    
+        function openModal() {
+            document.getElementById('mainModal').classList.add('open');
+        }
+        function closeModal() {
+            document.getElementById('mainModal').classList.remove('open');
+        }
+        // Click en el overlay cierra el modal
+        document.getElementById('mainModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        // Conectar el botón de opciones al modal
+        document.querySelectorAll('.options-btn').forEach(function(btn) {
+            btn.style.cursor = 'pointer';
+            btn.addEventListener('click', openModal);
+        });
+    <!-- end mobile-container -->
+
+    </script>
+</body>
+</html>

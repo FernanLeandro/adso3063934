@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #0b111a;
+            font-family: 'EB Garamond', serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            color: #d2b88b;
+            position: relative;
+        }
+
+        .mobile-container {
+            width: 100%;
+            max-width: 420px;
+            height: 900px;
+            
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            
+            
+            
+            
+        
+            background-color: #080b10;
+            background-image: linear-gradient(rgba(4, 9, 14, 0.5), rgba(4, 9, 14, 0.5)), url('./images/image%2013.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 40px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.8);
+            border: 2px solid rgba(210, 184, 139, 0.15);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transform-origin: center center;
+            padding: 20px 30px 30px;}
+
+        /* HEADER */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+        }
+
+        .options-btn {
+            width: 36px;
+            object-fit: contain;
+            cursor: pointer;
+        
+            margin-left: auto;}
+
+        /* LOGO / ICON AREA */
+        .icon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Unified size for all central icons */
+        .icon-container img {
+            width: 100%;
+            max-width: 250px;
+            height: 190px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.8));
+        }
+
+        
+
+        .page-title {
+            font-size: 26px;
+            color: #d2b88b;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* FORM */
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .input-group {
+            position: relative;
+            width: 100%;
+        }
+
+        .form-input {
+            width: 100%;
+            background-color: #080b10;
+            border: 2px solid #eb3d3d;
+            border-radius: 30px;
+            padding: 18px 25px;
+            color: #d2b88b;
+            font-family: 'EB Garamond', serif;
+            font-size: 18px;
+            outline: none;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 5px 15px rgba(0,0,0,0.4);
+            transition: all 0.3s;
+        }
+
+        .form-input::placeholder {
+            color: #d2b88b;
+        }
+        .form-textarea::placeholder {
+            color: #d2b88b;
+        }
+        .custom-select-input::placeholder {
+            color: #d2b88b;
+        }
+
+        
+
+        .form-input:focus {
+            border-color: #ff5252;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 5px 20px rgba(235, 61, 61, 0.3);
+        }
+
+        /* SUBMIT BUTTON */
+        .submit-btn {
+            width: 100%;
+            background-color: #080b10;
+            border: 2px solid #d2b88b;
+            border-radius: 30px;
+            padding: 18px 25px;
+            color: #d2b88b;
+            font-family: 'EB Garamond', serif;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #111822;
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        /* BOTTOM ACTIONS */
+        .bottom-actions {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+            width: 100%;
+            
+        
+            padding: 0 5px;}
+
+        
+
+        
+        
+
+        .action-link {
+            position: relative;
+            
+            color: #d2b88b;
+            text-decoration: none;
+            font-size: 16px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .action-link::before,
+        .action-link::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 105px; /* Ancho de la línea decorativa */
+            height: 10px; /* Alto de la línea decorativa */
+            background-image: url('./images/assets%202%2018.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            pointer-events: none; /* Para que las cajas no interfieran con los clics si se solapan */
+        }
+
+        .action-link::before {
+            top: -14px;
+        }
+
+        .action-link::after {
+            bottom: -14px;
+        }
+
+        
+
+        
+
+        
+
+        .action-link.active {
+            color: #eb3d3d;
+        }
+
+        .action-link:hover {
+            color: #ffffff;
+        }
+
+    
+        /* ====== MODAL MENU ====== */
+        .modal-overlay {
+            display: none;
+            position: absolute;
+            inset: 0;
+            background: rgba(4, 9, 14, 0.88);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background-color: #080b10;
+            border: 2px solid rgba(210, 184, 139, 0.4);
+            border-radius: 30px;
+            padding: 18px 20px 22px;
+            width: 65%;
+            max-width: 240px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+            animation: modalIn 0.25s ease;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -26px;
+            right: -26px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            object-fit: contain;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover { opacity: 0.7; }
+
+        
+
+        .modal-divider {
+            width: 100%;
+            height: 22px;
+            object-fit: contain;
+            margin: 2px 0;
+            opacity: 0.9;
+        }
+
+        .modal-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin: 10px 0;
+        }
+
+        .modal-link {
+            font-family: 'EB Garamond', serif;
+            color: #d2b88b;
+            text-decoration: none;
+            font-size: 18px;
+            letter-spacing: 1px;
+            padding: 7px 0;
+            transition: color 0.25s, letter-spacing 0.25s;
+            display: block;
+        }
+
+        .modal-link:hover { color: #ffffff; letter-spacing: 2px; }
+
+        .modal-link.modal-link-logout { color: #eb3d3d; }
+        .modal-link.modal-link-logout:hover { color: #ff6666; letter-spacing: 2px; }
+
+        .modal-link.active { color: #eb3d3d; }
+
+        .modal-link-logout {
+            font-family: 'EB Garamond', serif;
+            color: #eb3d3d;
+            text-decoration: none;
+            font-size: 18px;
+            letter-spacing: 1px;
+            padding: 8px 0;
+            margin-top: 4px;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-link-logout:hover { opacity: 1; }
+
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container">
+        
+        <!-- HEADER -->
+        <div class="header">
+            <!-- Ícono de opciones superior derecho -->
+            <img src="./images/assets 4 3.png" alt="Options" class="options-btn" onerror="this.src='https://via.placeholder.com/32x48?text=Icon'">
+        </div>
+
+        <!-- LOGO / ICON AREA -->
+        <div class="icon-container">
+            <img src="./images/assets 1 1.png" alt="Fingerprint Login" class="fingerprint-icon">
+            <h2 class="page-title">Login</h2>
+        </div>
+
+        <!-- FORM -->
+        <form class="login-form">
+            <div class="input-group">
+                <input type="text" class="form-input" placeholder="Username">
+            </div>
+            <div class="input-group">
+                <input type="password" class="form-input" placeholder="Password">
+            </div>
+            
+            <button type="button" class="submit-btn" onclick="window.location.href='04-dashboard.html'">Login</button>
+        </form>
+
+        <!-- BOTTOM ACTIONS -->
+        <div class="bottom-actions">
+            <a href="#" class="action-link active">Login</a>
+            <a href="03-register.html" class="action-link">Register</a>
+
+                        </div>
+        
+
+        <!-- ====== MODAL MENU ====== -->
+        <div class="modal-overlay" id="mainModal">
+            <div class="modal-box">
+                <!-- Botón cerrar -->
+                <img src="./images/assets%205%203.png" alt="Close" class="modal-close" id="modalClose" onclick="closeModal()">
+
+                <img src="./images/assets%202%203.png" alt="Divider" class="modal-divider" style="margin-bottom:8px;">
+
+                <nav class="modal-nav">
+                    <a href="01-welcome.html" class="modal-link">Welcome</a>
+                    <img src="./images/assets%202%203.png" alt="Divider" class="modal-divider">
+                    <a href="02-login.html" class="modal-link">Login</a>
+                    <img src="./images/assets%202%203.png" alt="Divider" class="modal-divider">
+                    <a href="03-register.html" class="modal-link">Register</a>
+                    <img src="./images/assets%202%203.png" alt="Divider" class="modal-divider">
+                    <a href="04-dashboard.html" class="modal-link">Dashboard</a>
+                </nav>
+
+                <img src="./images/assets%202%203.png" alt="Divider" class="modal-divider" style="margin-top:8px;">
+            </div>
+        </div>
+
+    </div><!-- end mobile-container -->
+
+
+    <script>
+        function fitScreen() {
+            const container = document.querySelector('.mobile-container');
+            // Calcula el factor de escala: si la pantalla es menor a 950px, lo encoge proporcionalmente.
+            const scale = Math.min(1, window.innerHeight / 950);
+            container.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
+        }
+        window.addEventListener('resize', fitScreen);
+        fitScreen();
+    
+        function openModal() {
+            document.getElementById('mainModal').classList.add('open');
+        }
+        function closeModal() {
+            document.getElementById('mainModal').classList.remove('open');
+        }
+        // Click en el overlay cierra el modal
+        document.getElementById('mainModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        // Conectar el botón de opciones al modal
+        document.querySelectorAll('.options-btn').forEach(function(btn) {
+            btn.style.cursor = 'pointer';
+            btn.addEventListener('click', openModal);
+        });
+    <!-- end mobile-container -->
+
+    </script>
+</body>
+</html>
