@@ -102,16 +102,16 @@
             filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.8));
         }
 
-        .wapon-image {
+        .icon-container .wapon-image {
             width: 150px;
             height: 150px;
             object-fit: contain;
-            border-radius: 40px;
-            border: 2px solid #eb3d3d;
+            border-radius: 50%; /* Borde circular */
+            border: 2px dashed #d2b88b; /* Borde dorado punteado */
             margin-bottom: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.8);
             background-color: #080b10;
-            padding: 15px;
+            padding: 15px; /* Separación entre la imagen y el borde */
         }
 
         .page-title {
@@ -305,34 +305,34 @@
         <!-- LOGO / ICON AREA -->
         <div class="icon-container">
             <!-- Pongo la foto temporal del arma de la wiki -->
-            <img src="https://liesofp.wiki.fextralife.com/file/Lies-of-P/electric_coil_stick_head_weapons_lies_of_p_wiki_guide_200px.png" alt="Wapon Image" class="wapon-image" onerror="this.src='https://via.placeholder.com/200x140?text=Weapon'">
-            <h2 class="page-title">View wapon</h2>
+            <img src="./images/coil mjolnir.png" alt="Wapon Image" class="wapon-image" onerror="this.src='https://via.placeholder.com/200x140?text=Weapon'">
+            <h2 class="page-title">View Wapon</h2>
         </div>
 
         <!-- FORM -->
         <form class="view-form">
             <div class="input-group">
-                <input type="text" class="form-input" readonly placeholder="Name">
+                <input type="text" class="form-input" readonly placeholder="Name" value="Coil Mjolnir">
             </div>
             
             <div class="input-group">
-                <input type="text" class="form-input" readonly placeholder="Type">
+                <input type="text" class="form-input" readonly placeholder="Type" value="Motivity">
             </div>
 
             <div class="input-group">
-                <input type="text" class="form-input" readonly placeholder="Rarity">
+                <input type="text" class="form-input" readonly placeholder="Rarity" value="Rare">
             </div>
             
             <div class="input-group">
-                <input type="text" class="form-input" readonly placeholder="Damage">
+                <input type="text" class="form-input" readonly placeholder="Damage" value="71.47">
             </div>
             
             <div class="input-group">
-                <input type="text" class="form-input" readonly placeholder="Location">
+                <input type="text" class="form-input" readonly placeholder="Location" value="Krat Central Station">
             </div>
 
             <div class="input-group">
-                <input type="text" class="form-input" readonly placeholder="Description">
+                <input type="text" class="form-input" readonly placeholder="Description" value="A large hammer that emits electrical discharges, very effective against puppets.">
             </div>
             
             <div class="action-buttons">

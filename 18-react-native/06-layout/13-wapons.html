@@ -149,8 +149,8 @@
         .item-avatar {
             width: 48px;
             height: 48px;
-            /* Aquí hacemos un cuadrado con bordes redondeados (squircle) para armas */
-            border-radius: 18px; 
+            /* Aquí hacemos un círculo para armas */
+            border-radius: 50%; 
             border: 2px solid #d2b88b;
             object-fit: contain; /* contain para que se vean completas las armas si pones imágenes */
             flex-shrink: 0;
@@ -193,6 +193,7 @@
             height: 38px;
             border-radius: 50%;
             border: 1px solid #d2b88b;
+            color: #d2b88b;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -200,23 +201,21 @@
             transition: all 0.2s;
         }
 
-
-
-        .action-circle img {
-            width: 32px;
-            height: 32px;
-            object-fit: contain;
+        .action-circle svg {
+            width: 20px;
+            height: 20px;
             pointer-events: none;
             display: block;
         }
 
         .action-circle.delete {
             border-color: #eb3d3d;
+            color: #eb3d3d;
         }
 
-        .action-circle.delete img {
-            width: 26px;
-            height: 26px;
+        .action-circle.delete svg {
+            width: 20px;
+            height: 20px;
         }
 
         .action-circle:hover {
@@ -422,85 +421,85 @@
             
             <!-- Item 1: Coil Mjolnir -->
             <div class="list-item">
-                <div class="item-avatar"></div>
+                <img src="./images/coil mjolnir.png" class="item-avatar" alt="Coil Mjolnir" onerror="this.src='https://via.placeholder.com/48'">
                 <div class="item-info">
-                    <div class="item-title">Name</div>
-                    <div class="item-subtitle">Damage:</div>
+                    <div class="item-title">Coil Mjolnir</div>
+                    <div class="item-subtitle">Damage: 71.47</div>
                 </div>
                 <div class="item-actions">
-                    <div class="action-circle" onclick="window.location.href='15-viewwapon.html'"><img src="./images/assets 1 9.png" alt="View"></div>
-                    <div class="action-circle" onclick="window.location.href='18-editwapon.html'"><img src="./images/assets 4 6.png" alt="Edit"></div>
-                    <div class="action-circle delete" onclick="alert('Weapon deleted!')"><img src="./images/assets 6.png" alt="Delete"></div>
+                    <div class="action-circle" onclick="window.location.href='15-viewwapon.html'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M176,32c-20.61,0-38.28,18.16-48,45.85C118.28,50.16,100.61,32,80,32c-31.4,0-56,42.17-56,96s24.6,96,56,96c20.61,0,38.28-18.16,48-45.85,9.72,27.69,27.39,45.85,48,45.85,31.4,0,56-42.17,56-96S207.4,32,176,32ZM106.92,186.39C99.43,200.12,89.62,208,80,208s-19.43-7.88-26.92-21.61a104.81,104.81,0,0,1-10.24-29.23,32,32,0,1,0,0-58.32A104.81,104.81,0,0,1,53.08,69.61C60.57,55.88,70.38,48,80,48s19.43,7.88,26.92,21.61C115.35,85.07,120,105.81,120,128S115.35,170.93,106.92,186.39ZM40,128a16,16,0,1,1,16,16A16,16,0,0,1,40,128Zm162.92,58.39C195.43,200.12,185.62,208,176,208s-19.43-7.88-26.92-21.61a104.81,104.81,0,0,1-10.24-29.23,32,32,0,1,0,0-58.32,104.81,104.81,0,0,1,10.24-29.23C156.57,55.88,166.38,48,176,48s19.43,7.88,26.92,21.61C211.35,85.07,216,105.81,216,128S211.35,170.93,202.92,186.39ZM136,128a16,16,0,1,1,16,16A16,16,0,0,1,136,128Z"></path></svg></div>
+                    <div class="action-circle" onclick="window.location.href='18-editwapon.html'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM51.31,160,136,75.31,152.69,92,68,176.68ZM48,179.31,76.69,208H48Zm48,25.38L79.31,188,164,103.31,180.69,120Zm96-96L147.31,64l24-24L216,84.68Z"></path></svg></div>
+                    <div class="action-circle delete" onclick="alert('Weapon deleted!')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M216,48H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM192,208H64V64H192ZM80,24a8,8,0,0,1,8-8h80a8,8,0,0,1,0,16H88A8,8,0,0,1,80,24Z"></path></svg></div>
                 </div>
             </div>
 
             <!-- Item 2: Exploding Pickaxe -->
             <div class="list-item">
-                <div class="item-avatar"></div>
+                <img src="./images/exploding pickaxe.png" class="item-avatar" alt="Exploding Pickaxe" onerror="this.src='https://via.placeholder.com/48'">
                 <div class="item-info">
-                    <div class="item-title">Name</div>
-                    <div class="item-subtitle">Damage:</div>
+                    <div class="item-title">Exploding Pickaxe</div>
+                    <div class="item-subtitle">Damage: 57.99</div>
                 </div>
                 <div class="item-actions">
-                    <div class="action-circle" onclick="window.location.href='15-viewwapon.html'"><img src="./images/assets 1 9.png" alt="View"></div>
-                    <div class="action-circle" onclick="window.location.href='18-editwapon.html'"><img src="./images/assets 4 6.png" alt="Edit"></div>
-                    <div class="action-circle delete" onclick="alert('Weapon deleted!')"><img src="./images/assets 6.png" alt="Delete"></div>
+                    <div class="action-circle" onclick="window.location.href='15-viewwapon.html'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M176,32c-20.61,0-38.28,18.16-48,45.85C118.28,50.16,100.61,32,80,32c-31.4,0-56,42.17-56,96s24.6,96,56,96c20.61,0,38.28-18.16,48-45.85,9.72,27.69,27.39,45.85,48,45.85,31.4,0,56-42.17,56-96S207.4,32,176,32ZM106.92,186.39C99.43,200.12,89.62,208,80,208s-19.43-7.88-26.92-21.61a104.81,104.81,0,0,1-10.24-29.23,32,32,0,1,0,0-58.32A104.81,104.81,0,0,1,53.08,69.61C60.57,55.88,70.38,48,80,48s19.43,7.88,26.92,21.61C115.35,85.07,120,105.81,120,128S115.35,170.93,106.92,186.39ZM40,128a16,16,0,1,1,16,16A16,16,0,0,1,40,128Zm162.92,58.39C195.43,200.12,185.62,208,176,208s-19.43-7.88-26.92-21.61a104.81,104.81,0,0,1-10.24-29.23,32,32,0,1,0,0-58.32,104.81,104.81,0,0,1,10.24-29.23C156.57,55.88,166.38,48,176,48s19.43,7.88,26.92,21.61C211.35,85.07,216,105.81,216,128S211.35,170.93,202.92,186.39ZM136,128a16,16,0,1,1,16,16A16,16,0,0,1,136,128Z"></path></svg></div>
+                    <div class="action-circle" onclick="window.location.href='18-editwapon.html'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM51.31,160,136,75.31,152.69,92,68,176.68ZM48,179.31,76.69,208H48Zm48,25.38L79.31,188,164,103.31,180.69,120Zm96-96L147.31,64l24-24L216,84.68Z"></path></svg></div>
+                    <div class="action-circle delete" onclick="alert('Weapon deleted!')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M216,48H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM192,208H64V64H192ZM80,24a8,8,0,0,1,8-8h80a8,8,0,0,1,0,16H88A8,8,0,0,1,80,24Z"></path></svg></div>
                 </div>
             </div>
 
             <!-- Item 3: Electric Coil Stick -->
             <div class="list-item">
-                <div class="item-avatar"></div>
+                <img src="./images/electric coil.png" class="item-avatar" alt="Electric Coil Stick" onerror="this.src='https://via.placeholder.com/48'">
                 <div class="item-info">
-                    <div class="item-title">Name</div>
-                    <div class="item-subtitle">Damage:</div>
+                    <div class="item-title">Electric Coil Stick</div>
+                    <div class="item-subtitle">Damage: 54.88</div>
                 </div>
                 <div class="item-actions">
-                    <div class="action-circle" onclick="window.location.href='15-viewwapon.html'"><img src="./images/assets 1 9.png" alt="View"></div>
-                    <div class="action-circle" onclick="window.location.href='18-editwapon.html'"><img src="./images/assets 4 6.png" alt="Edit"></div>
-                    <div class="action-circle delete" onclick="alert('Weapon deleted!')"><img src="./images/assets 6.png" alt="Delete"></div>
+                    <div class="action-circle" onclick="window.location.href='15-viewwapon.html'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M176,32c-20.61,0-38.28,18.16-48,45.85C118.28,50.16,100.61,32,80,32c-31.4,0-56,42.17-56,96s24.6,96,56,96c20.61,0,38.28-18.16,48-45.85,9.72,27.69,27.39,45.85,48,45.85,31.4,0,56-42.17,56-96S207.4,32,176,32ZM106.92,186.39C99.43,200.12,89.62,208,80,208s-19.43-7.88-26.92-21.61a104.81,104.81,0,0,1-10.24-29.23,32,32,0,1,0,0-58.32A104.81,104.81,0,0,1,53.08,69.61C60.57,55.88,70.38,48,80,48s19.43,7.88,26.92,21.61C115.35,85.07,120,105.81,120,128S115.35,170.93,106.92,186.39ZM40,128a16,16,0,1,1,16,16A16,16,0,0,1,40,128Zm162.92,58.39C195.43,200.12,185.62,208,176,208s-19.43-7.88-26.92-21.61a104.81,104.81,0,0,1-10.24-29.23,32,32,0,1,0,0-58.32,104.81,104.81,0,0,1,10.24-29.23C156.57,55.88,166.38,48,176,48s19.43,7.88,26.92,21.61C211.35,85.07,216,105.81,216,128S211.35,170.93,202.92,186.39ZM136,128a16,16,0,1,1,16,16A16,16,0,0,1,136,128Z"></path></svg></div>
+                    <div class="action-circle" onclick="window.location.href='18-editwapon.html'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM51.31,160,136,75.31,152.69,92,68,176.68ZM48,179.31,76.69,208H48Zm48,25.38L79.31,188,164,103.31,180.69,120Zm96-96L147.31,64l24-24L216,84.68Z"></path></svg></div>
+                    <div class="action-circle delete" onclick="alert('Weapon deleted!')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M216,48H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM192,208H64V64H192ZM80,24a8,8,0,0,1,8-8h80a8,8,0,0,1,0,16H88A8,8,0,0,1,80,24Z"></path></svg></div>
                 </div>
             </div>
 
             <!-- Item 4: Greatsword of Fate -->
             <div class="list-item">
-                <div class="item-avatar"></div>
+                <img src="./images/greatword of fate.png" class="item-avatar" alt="Greatsword of Fate" onerror="this.src='https://via.placeholder.com/48'">
                 <div class="item-info">
-                    <div class="item-title">Name</div>
-                    <div class="item-subtitle">Damage:</div>
+                    <div class="item-title">Greatsword of Fate</div>
+                    <div class="item-subtitle">Damage: 65.37</div>
                 </div>
                 <div class="item-actions">
-                    <div class="action-circle" onclick="window.location.href='15-viewwapon.html'"><img src="./images/assets 1 9.png" alt="View"></div>
-                    <div class="action-circle" onclick="window.location.href='18-editwapon.html'"><img src="./images/assets 4 6.png" alt="Edit"></div>
-                    <div class="action-circle delete" onclick="alert('Weapon deleted!')"><img src="./images/assets 6.png" alt="Delete"></div>
+                    <div class="action-circle" onclick="window.location.href='15-viewwapon.html'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M176,32c-20.61,0-38.28,18.16-48,45.85C118.28,50.16,100.61,32,80,32c-31.4,0-56,42.17-56,96s24.6,96,56,96c20.61,0,38.28-18.16,48-45.85,9.72,27.69,27.39,45.85,48,45.85,31.4,0,56-42.17,56-96S207.4,32,176,32ZM106.92,186.39C99.43,200.12,89.62,208,80,208s-19.43-7.88-26.92-21.61a104.81,104.81,0,0,1-10.24-29.23,32,32,0,1,0,0-58.32A104.81,104.81,0,0,1,53.08,69.61C60.57,55.88,70.38,48,80,48s19.43,7.88,26.92,21.61C115.35,85.07,120,105.81,120,128S115.35,170.93,106.92,186.39ZM40,128a16,16,0,1,1,16,16A16,16,0,0,1,40,128Zm162.92,58.39C195.43,200.12,185.62,208,176,208s-19.43-7.88-26.92-21.61a104.81,104.81,0,0,1-10.24-29.23,32,32,0,1,0,0-58.32,104.81,104.81,0,0,1,10.24-29.23C156.57,55.88,166.38,48,176,48s19.43,7.88,26.92,21.61C211.35,85.07,216,105.81,216,128S211.35,170.93,202.92,186.39ZM136,128a16,16,0,1,1,16,16A16,16,0,0,1,136,128Z"></path></svg></div>
+                    <div class="action-circle" onclick="window.location.href='18-editwapon.html'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM51.31,160,136,75.31,152.69,92,68,176.68ZM48,179.31,76.69,208H48Zm48,25.38L79.31,188,164,103.31,180.69,120Zm96-96L147.31,64l24-24L216,84.68Z"></path></svg></div>
+                    <div class="action-circle delete" onclick="alert('Weapon deleted!')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M216,48H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM192,208H64V64H192ZM80,24a8,8,0,0,1,8-8h80a8,8,0,0,1,0,16H88A8,8,0,0,1,80,24Z"></path></svg></div>
                 </div>
             </div>
 
             <!-- Item 5: Puppet's Saber -->
             <div class="list-item">
-                <div class="item-avatar"></div>
+                <img src="./images/puppets saber.png" class="item-avatar" alt="Puppet's Saber" onerror="this.src='https://via.placeholder.com/48'">
                 <div class="item-info">
-                    <div class="item-title">Name</div>
-                    <div class="item-subtitle">Damage:</div>
+                    <div class="item-title">Puppet's Saber</div>
+                    <div class="item-subtitle">Damage: 50.00</div>
                 </div>
                 <div class="item-actions">
-                    <div class="action-circle" onclick="window.location.href='15-viewwapon.html'"><img src="./images/assets 1 9.png" alt="View"></div>
-                    <div class="action-circle" onclick="window.location.href='18-editwapon.html'"><img src="./images/assets 4 6.png" alt="Edit"></div>
-                    <div class="action-circle delete" onclick="alert('Weapon deleted!')"><img src="./images/assets 6.png" alt="Delete"></div>
+                    <div class="action-circle" onclick="window.location.href='15-viewwapon.html'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M176,32c-20.61,0-38.28,18.16-48,45.85C118.28,50.16,100.61,32,80,32c-31.4,0-56,42.17-56,96s24.6,96,56,96c20.61,0,38.28-18.16,48-45.85,9.72,27.69,27.39,45.85,48,45.85,31.4,0,56-42.17,56-96S207.4,32,176,32ZM106.92,186.39C99.43,200.12,89.62,208,80,208s-19.43-7.88-26.92-21.61a104.81,104.81,0,0,1-10.24-29.23,32,32,0,1,0,0-58.32A104.81,104.81,0,0,1,53.08,69.61C60.57,55.88,70.38,48,80,48s19.43,7.88,26.92,21.61C115.35,85.07,120,105.81,120,128S115.35,170.93,106.92,186.39ZM40,128a16,16,0,1,1,16,16A16,16,0,0,1,40,128Zm162.92,58.39C195.43,200.12,185.62,208,176,208s-19.43-7.88-26.92-21.61a104.81,104.81,0,0,1-10.24-29.23,32,32,0,1,0,0-58.32,104.81,104.81,0,0,1,10.24-29.23C156.57,55.88,166.38,48,176,48s19.43,7.88,26.92,21.61C211.35,85.07,216,105.81,216,128S211.35,170.93,202.92,186.39ZM136,128a16,16,0,1,1,16,16A16,16,0,0,1,136,128Z"></path></svg></div>
+                    <div class="action-circle" onclick="window.location.href='18-editwapon.html'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM51.31,160,136,75.31,152.69,92,68,176.68ZM48,179.31,76.69,208H48Zm48,25.38L79.31,188,164,103.31,180.69,120Zm96-96L147.31,64l24-24L216,84.68Z"></path></svg></div>
+                    <div class="action-circle delete" onclick="alert('Weapon deleted!')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M216,48H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM192,208H64V64H192ZM80,24a8,8,0,0,1,8-8h80a8,8,0,0,1,0,16H88A8,8,0,0,1,80,24Z"></path></svg></div>
                 </div>
             </div>
 
             <!-- Item 6: Master Chef's Knife -->
             <div class="list-item">
-                <div class="item-avatar"></div>
+                <img src="./images/master chefs knife.png" class="item-avatar" alt="Master Chef's Knife" onerror="this.src='https://via.placeholder.com/48'">
                 <div class="item-info">
-                    <div class="item-title">Name</div>
-                    <div class="item-subtitle">Damage:</div>
+                    <div class="item-title">Master Chef's Knife</div>
+                    <div class="item-subtitle">Damage: 77.56</div>
                 </div>
                 <div class="item-actions">
-                    <div class="action-circle" onclick="window.location.href='15-viewwapon.html'"><img src="./images/assets 1 9.png" alt="View"></div>
-                    <div class="action-circle" onclick="window.location.href='18-editwapon.html'"><img src="./images/assets 4 6.png" alt="Edit"></div>
-                    <div class="action-circle delete" onclick="alert('Weapon deleted!')"><img src="./images/assets 6.png" alt="Delete"></div>
+                    <div class="action-circle" onclick="window.location.href='15-viewwapon.html'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M176,32c-20.61,0-38.28,18.16-48,45.85C118.28,50.16,100.61,32,80,32c-31.4,0-56,42.17-56,96s24.6,96,56,96c20.61,0,38.28-18.16,48-45.85,9.72,27.69,27.39,45.85,48,45.85,31.4,0,56-42.17,56-96S207.4,32,176,32ZM106.92,186.39C99.43,200.12,89.62,208,80,208s-19.43-7.88-26.92-21.61a104.81,104.81,0,0,1-10.24-29.23,32,32,0,1,0,0-58.32A104.81,104.81,0,0,1,53.08,69.61C60.57,55.88,70.38,48,80,48s19.43,7.88,26.92,21.61C115.35,85.07,120,105.81,120,128S115.35,170.93,106.92,186.39ZM40,128a16,16,0,1,1,16,16A16,16,0,0,1,40,128Zm162.92,58.39C195.43,200.12,185.62,208,176,208s-19.43-7.88-26.92-21.61a104.81,104.81,0,0,1-10.24-29.23,32,32,0,1,0,0-58.32,104.81,104.81,0,0,1,10.24-29.23C156.57,55.88,166.38,48,176,48s19.43,7.88,26.92,21.61C211.35,85.07,216,105.81,216,128S211.35,170.93,202.92,186.39ZM136,128a16,16,0,1,1,16,16A16,16,0,0,1,136,128Z"></path></svg></div>
+                    <div class="action-circle" onclick="window.location.href='18-editwapon.html'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM51.31,160,136,75.31,152.69,92,68,176.68ZM48,179.31,76.69,208H48Zm48,25.38L79.31,188,164,103.31,180.69,120Zm96-96L147.31,64l24-24L216,84.68Z"></path></svg></div>
+                    <div class="action-circle delete" onclick="alert('Weapon deleted!')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M216,48H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM192,208H64V64H192ZM80,24a8,8,0,0,1,8-8h80a8,8,0,0,1,0,16H88A8,8,0,0,1,80,24Z"></path></svg></div>
                 </div>
             </div>
 

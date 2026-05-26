@@ -102,14 +102,15 @@
             filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.8));
         }
 
-        .character-avatar {
+        .icon-container .character-avatar {
             width: 150px;
             height: 150px;
             object-fit: cover;
-            border-radius: 40px; /* Bordes redondeados como en el diseño */
-            border: 2px solid #eb3d3d; /* Borde rojo */
+            border-radius: 50%; /* Borde circular */
+            border: 2px dashed #d2b88b; /* Borde dorado punteado */
             margin-bottom: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+            padding: 5px; /* Separación entre la imagen y el borde */
         }
 
         .page-title {
@@ -310,30 +311,30 @@
         <!-- LOGO / ICON AREA -->
         <div class="icon-container">
             <!-- Pongo la foto de Alidoro de la wiki temporalmente, puedes cambiarla después -->
-            <img src="https://liesofp.wiki.fextralife.com/file/Lies-of-P/alidoro_npc_lies_of_p_wiki_guide_200px.png" alt="Character Image" class="character-avatar" onerror="this.src='https://via.placeholder.com/150?text=Avatar'">
+            <img src="./images/alidoro.png" alt="Character Image" class="character-avatar" onerror="this.src='https://via.placeholder.com/150?text=Avatar'">
             <h2 class="page-title">View Character</h2>
         </div>
 
         <!-- FORM -->
         <form class="view-form">
             <div class="input-group">
-                <input type="text" class="form-input" readonly placeholder="Name">
+                <input type="text" class="form-input" readonly placeholder="Name" value="Alidoro">
             </div>
             
             <div class="input-group">
-                <input type="text" class="form-input" readonly placeholder="Type">
+                <input type="text" class="form-input" readonly placeholder="Type" value="Secondary character">
             </div>
             
             <div class="input-group">
-                <input type="text" class="form-input" readonly placeholder="Localitation">
+                <input type="text" class="form-input" readonly placeholder="Localitation" value="Relic of Trismegistus">
             </div>
             
             <div class="input-group">
-                <input type="text" class="form-input" readonly placeholder="Weakness">
+                <input type="text" class="form-input" readonly placeholder="Weakness" value="Acid">
             </div>
 
             <div class="input-group">
-                <textarea class="form-input form-textarea" readonly placeholder="Description"></textarea>
+                <textarea class="form-input form-textarea" readonly placeholder="Description">Alidoro is a hound that resides in the Relic of Trismegistus. He provides unique weapons in exchange for Rare Ergo.</textarea>
             </div>
             
             <div class="action-buttons">
