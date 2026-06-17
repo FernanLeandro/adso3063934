@@ -115,7 +115,7 @@
         .wapon-form {
             display: flex;
             flex-direction: column;
-            gap: 12px; /* Reducido el gap para encajar los 6 inputs + botones */
+            gap: 20px;
             width: 100%;
         }
 
@@ -157,10 +157,6 @@
         /* Añadir la flecha custom para los selects */
         select.form-input {
             cursor: pointer;
-            background-image: url('./images/assets%203%205.png'); background-size: auto 120%;
-            background-repeat: no-repeat;
-            background-position-x: 95%;
-            background-position-y: center;
         }
 
         
@@ -304,10 +300,10 @@
             position: absolute;
             inset: 0;
             background: rgba(4, 9, 14, 0.88);
-            z-index: 100;
+            z-index: 200;
             align-items: center;
             justify-content: center;
-            border-radius: 40px; /* Mantener la curva externa */
+            border-radius: 40px;
         }
         .selector-modal-overlay.open {
             display: flex;
@@ -370,14 +366,14 @@
             <div class="input-group">
                 <input type="text" id="customSelect_1" class="form-input custom-select-input" placeholder="Type" readonly 
                        onclick="openSelectorModal('Type', ['Dagger','Sword','Greatsword'], 'customSelect_1')"
-                       style="cursor: pointer; background-image: url('./images/assets%203%205.png'); background-size: auto 120%; background-repeat: no-repeat; background-position-x: 95%; background-position-y: center;">
+                       style="cursor: pointer;"
             </div>
             
             
             <div class="input-group">
-                <input type="text" id="customSelect_2" class="form-input custom-select-input" placeholder="Rarity" readonly 
+                <input type="text" id="customSelect_2" class="form-input custom-select-input" placeholder="Rarity (select)" readonly 
                        onclick="openSelectorModal('Rarity', ['Common','Rare','Legendary'], 'customSelect_2')"
-                       style="cursor: pointer; background-image: url('./images/assets%203%205.png'); background-size: auto 120%; background-repeat: no-repeat; background-position-x: 95%; background-position-y: center;">
+                       style="cursor: pointer;"
             </div>
 
             <div class="input-group">

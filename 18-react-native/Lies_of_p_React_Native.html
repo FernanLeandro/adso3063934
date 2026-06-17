@@ -321,7 +321,7 @@
     <div id="layout" class="section">
         <div class="section-title">Layout Implementation</div>
         <div class="iframe-card" id="layoutIframeCard">
-            <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+            <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ fullscreen</button>
             <!-- Using the local 01-welcome.html file as the entry point -->
             <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="06-layout/01-welcome.html" allowfullscreen></iframe>
         </div>
@@ -387,7 +387,7 @@
             } else if (iframeCard.msRequestFullscreen) {
                 iframeCard.msRequestFullscreen();
             }
-            btn.textContent = '✕ EXIT';
+            btn.textContent = '✕ exit';
         } else {
             // Exit fullscreen
             if (document.exitFullscreen) {
@@ -397,7 +397,7 @@
             } else if (document.msExitFullscreen) {
                 document.msExitFullscreen();
             }
-            btn.textContent = '⛶ FULLSCREEN';
+            btn.textContent = '⛶ fullscreen';
         }
     }
 
@@ -405,17 +405,17 @@
     document.addEventListener('fullscreenchange', function() {
         const btn = document.querySelector('.fullscreen-btn');
         if (document.fullscreenElement) {
-            btn.textContent = '✕ EXIT';
+            btn.textContent = '✕ exit';
         } else {
-            btn.textContent = '⛶ FULLSCREEN';
+            btn.textContent = '⛶ fullscreen';
         }
     });
     document.addEventListener('webkitfullscreenchange', function() {
         const btn = document.querySelector('.fullscreen-btn');
         if (document.webkitFullscreenElement) {
-            btn.textContent = '✕ EXIT';
+            btn.textContent = '✕ exit';
         } else {
-            btn.textContent = '⛶ FULLSCREEN';
+            btn.textContent = '⛶ fullscreen';
         }
     });
 </script>

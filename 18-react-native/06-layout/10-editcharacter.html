@@ -115,7 +115,7 @@
         .character-form {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
             width: 100%;
         }
 
@@ -158,10 +158,6 @@
         /* Añadir la flecha custom para los selects */
         select.form-input {
             cursor: pointer;
-            background-image: url('./images/assets%203%205.png'); background-size: auto 120%;
-            background-repeat: no-repeat;
-            background-position-x: 95%;
-            background-position-y: center;
         }
 
         .form-textarea {
@@ -308,39 +304,14 @@
 
     
         /* ====== SELECTOR MODAL ====== */
-        .selector-modal-overlay {
-            display: none;
-            position: absolute;
-            inset: 0;
-            background: rgba(4, 9, 14, 0.88);
-            z-index: 100;
-            align-items: center;
-            justify-content: center;
-            border-radius: 40px; /* Mantener la curva externa */
-        }
-        .selector-modal-overlay.open {
-            display: flex;
-        }
-        .selector-modal-box {
-            background-color: #080b10;
-            border: 2px solid rgba(210, 184, 139, 0.4);
-            border-radius: 0; /* ¡Cuadrado como se pidió! */
-            padding: 18px 20px 22px;
-            width: 75%;
-            max-width: 280px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
-            animation: modalIn 0.25s ease;
-        }
-        .selector-title {
-            font-size: 20px;
-            color: #d2b88b;
-            font-weight: 500;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
+        .selector-modal-overlay { display: none; position: absolute; inset: 0; background: rgba(4, 9, 14, 0.88); z-index: 200; align-items: center; justify-content: center; border-radius: 40px; }
+        .selector-modal-overlay.open { display: flex; }
+        .selector-modal-box { background-color: #080b10; border: 2px solid rgba(210, 184, 139, 0.4); border-radius: 0; padding: 18px 20px 22px; width: 75%; max-width: 280px; text-align: center; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.9); animation: modalIn 0.25s ease; }
+        .selector-modal-box .modal-close { top: -35px; right: -35px; }
+        .selector-title { font-size: 20px; color: #d2b88b; font-weight: 500; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase; }
+        .selector-option { font-family: 'EB Garamond', serif; color: #d2b88b; font-size: 18px; letter-spacing: 1px; padding: 7px 0; transition: color 0.25s, letter-spacing 0.25s; display: block; cursor: pointer; }
+        .selector-option:hover { color: #ffffff; letter-spacing: 2px; }
+        .selector-divider { width: 100%; height: 22px; object-fit: contain; margin: 2px 0; opacity: 0.9; display: block; }
         .selector-option { font-family: 'EB Garamond', serif; color: #d2b88b; text-decoration: none; font-size: 18px; letter-spacing: 1px; padding: 7px 0; transition: color 0.25s, letter-spacing 0.25s; display: block; cursor: pointer; }
         .selector-option:hover { color: #ffffff; letter-spacing: 2px; }
         .selector-divider { width: 100%; height: 22px; object-fit: contain; margin: 2px 0; opacity: 0.9; display: block; } 
@@ -378,9 +349,9 @@
             
             
             <div class="input-group">
-                <input type="text" id="customSelect_1" class="form-input custom-select-input" placeholder="Type" readonly 
+                <input type="text" id="customSelect_1" class="form-input custom-select-input" placeholder="Type (select)" readonly 
                        onclick="openSelectorModal('Type', ['Boss','Secondary character'], 'customSelect_1')"
-                       style="cursor: pointer; background-image: url('./images/assets%203%205.png'); background-size: auto 120%; background-repeat: no-repeat; background-position-x: 95%; background-position-y: center;">
+                       style="cursor: pointer;">
             </div>
             
             <div class="input-group">
@@ -389,9 +360,9 @@
             
             
             <div class="input-group">
-                <input type="text" id="customSelect_2" class="form-input custom-select-input" placeholder="Weakness" readonly 
+                <input type="text" id="customSelect_2" class="form-input custom-select-input" placeholder="Weakness (select)" readonly 
                        onclick="openSelectorModal('Weakness', ['Fire','Electric','Acid'], 'customSelect_2')"
-                       style="cursor: pointer; background-image: url('./images/assets%203%205.png'); background-size: auto 120%; background-repeat: no-repeat; background-position-x: 95%; background-position-y: center;">
+                       style="cursor: pointer;">
             </div>
 
             <div class="input-group">

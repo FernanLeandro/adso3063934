@@ -39,7 +39,7 @@
         .page-title { font-size: 20px; color: #d2b88b; font-weight: 500; letter-spacing: 1px; margin-bottom: 5px; }
 
         /* FORM */
-        .wapon-form { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+        .wapon-form { display: flex; flex-direction: column; gap: 20px; width: 100%; }
         .input-group { position: relative; width: 100%; }
         .form-input {
             width: 100%; background: linear-gradient(145deg, #0a0f15 0%, #05080c 100%); border: 1px solid rgba(150, 40, 40, 0.5);
@@ -67,11 +67,6 @@
         /* Custom select inputs */
         .custom-select-input {
             cursor: pointer;
-            background-image: url('./images/assets%203%205.png');
-            background-repeat: no-repeat;
-            background-position: right 15px center;
-            background-size: auto 60%;
-            padding-right: 45px;
         }
 
         .action-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 5px; }
@@ -136,12 +131,12 @@
             </div>
 
             <div class="input-group">
-                <input type="text" id="editWaponType" class="form-input custom-select-input" placeholder="Type" readonly
+                <input type="text" id="editWaponType" class="form-input custom-select-input" placeholder="Type (select)" readonly
                        onclick="openSelectorModal('Type', ['Motivity', 'Technique', 'Advance'], 'editWaponType')">
             </div>
 
             <div class="input-group">
-                <input type="text" id="editWaponRarity" class="form-input custom-select-input" placeholder="Rarity" readonly
+                <input type="text" id="editWaponRarity" class="form-input custom-select-input" placeholder="Rarity (select)" readonly
                        onclick="openSelectorModal('Rarity', ['Normal', 'Special', 'Rare'], 'editWaponRarity')">
             </div>
 
